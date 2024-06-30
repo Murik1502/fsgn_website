@@ -2,161 +2,314 @@
 {% load static %}
 
 {% block title %}
-    О кафедре | СГН2
+    Абитуриенту | СГН2
 {% endblock %}
 
 {% block css %}
+<link rel="stylesheet" href="{% static 'sgn2/css/style.css' %}">
+<link rel="stylesheet" href="{% static 'sgn2/css/button.css' %}">
+<link rel="stylesheet" href="{% static 'sgn2/css/normalize.css' %}">
 {% endblock %}
 
 {% block applicant_tab %}
-    active
+active
 {% endblock %}
 
 {% block content %}
-    <section class="grid-12">
-        <div class="container-6" style="align-self: center;">
-            <div class="stroke-block">Кафедра СГН2</div>
-            <div class="h1 mt15">Социология и культурология</div>
-            <div class="text1 mt25">Социология техники — новая и чрезвычайно востребованная отрасль социального знания. В последние десятилетия растет число исследований в области социальной оценки техники, управления технологическими инновациями, функционирования научного и технического сообществ, организации инженерной деятельности, культурологии.</div>
-        </div>
-        <div class="container-6 top-img-container">
-            <img src="{% static 'sgn2/img/about-top-illustration.png' %}" alt="" style="height: 100%">
-        </div>
-    </section>
-    <section style="background-color: white">
-        <div class="inline-container">
-            <div class="h2">Преимущества</div>
-            <div class="btns">
-                <button class="arrow-btn" id="adv-prev"><img src="{% static 'sgn2/img/arrow-slider.svg' %}" style="transform: rotate(180deg); margin-right: 3px; margin-top: 3px;"></button>
-                <button class="arrow-btn" id="adv-next"><img src="{% static 'sgn2/img/arrow-slider.svg' %}" style="margin-left: 3px; margin-top: 3px;"></button>
+
+<div class="info">
+    <p class="text__nav">ФСГН > СГН2 > Абитуриенту</p>
+    <div class="afterHeader">
+        <div class="checkbox__wrapper">
+            <div class="custom-checkbox">
+                <input id="status" type="checkbox" name="status">
+                <label for="status">
+                    <div class="status-switch" data-unchecked="Бакалавриат" data-checked="Магистратура"></div>
+                </label>
             </div>
         </div>
-        <div class="slider advantages mt25">
-            {% for advantage in advantages %}
-                <div class="slide advantage">
-                <div class="point-number">{{ forloop.counter }}</div>
-                <div class="text1 mt15">{{ advantage }}</div>
-            </div>
-            {% endfor %}
-        </div>
-    </section>
+    </div>
+</div>
+<div class="container" id="container1" style="display: flex;">
     <section>
-        <div class="inline-container">
-            <div class="h2">Преподаватели</div>
-            <div class="btns">
-                <button class="arrow-btn" id="teacher-prev"><img src="{% static 'sgn2/img/arrow-slider.svg' %}" style="transform: rotate(180deg); margin-right: 3px; margin-top: 3px;"></button>
-                <button class="arrow-btn" id="teacher-next"><img src="{% static 'sgn2/img/arrow-slider.svg' %}" style="margin-left: 3px; margin-top: 3px;"></button>
+        <div class="main">
+            <div class="main__text">
+                <ul class="main__preview">
+                    <li class="main__program">№39.03.01</li>
+                </ul>
+                <h1 class="main__title">Социология техники и инженерной деятельности</h1>
+                <p class="main__desc">Программа направлена на подготовку высококвалифицированных специалистов.
+                    Выпускников с этого направления можно назвать специалистами-социологами в предметной области
+                    социологии техники и технологий.</p>
+                <ul class="main__list">
+                    <li class="main__item">
+                        <span class="main__span">4 года</span>
+                        <br>
+                        период обучения
+                    </li>
+                    <li class="main__item">
+                        <span class="main__span">Очная</span>
+                        <br>
+                        форма обучения
+                    </li>
+                </ul>
+            </div>
+            <div class="main__image">
+                <img class="main__img" src="{% static 'sgn2/img/concept-of-media.svg' %}">
             </div>
         </div>
-        <div class="slider teachers mt25">
-            {% for teacher in teachers %}
-                <div class="slide teacher">
-                <div class="teacher-img" style="background-image: url({{ teacher.photo.url}})"></div>
-                    <div class="text-block">
-                        <div class="h3">{{ teacher.name }}</div>
-                        <div class="text1 mt10">{{ teacher.role }}</div>
-                        <div class="sub-info-block mt10">
-                            <div class="line"></div>
-                            <div class="text1 ml15">{{ teacher.description }}</div>
-                        </div>
+    </section>
+    <section class="section__white">
+        <div class="wrap__subjects">
+            <div class="subjects">
+                <h1 class="title">Что я буду изучать?</h1>
+                <div class="card">
+                    <div class="card__item">
+                        <h3 class="card__header__soc">Социология</h3>
+                        <ul class="card__list">
+                            <li class="card__list__soc">Экономическая социология</li>
+                            <li class="card__list__soc">Методы прикладной статистики для социологов</li>
+                            <li class="card__list__soc">Основы социологии</li>
+                            <li class="card__list__soc">История социологии</li>
+                            <li class="card__list__soc">Современные социологические теории</li>
+                        </ul>
+                        <img src="{% static 'sgn2/img/girl.png' %}" alt="" class="card__img">
+                    </div>
+                    <div class="card__item">
+                        <h3 class="card__header__tech">Технический цикл</h3>
+                        <ul class="card__list">
+                            <li class="card__list__tech">Высшая математика</li>
+                            <li class="card__list__tech">Дискретная математика</li>
+                            <li class="card__list__tech">Теория вероятностей и математическая статистика</li>
+                            <li class="card__list__tech">Информатика и программирование</li>
+                        </ul>
+                        <img src="{% static 'sgn2/img/gear.png' %}" alt="" class="card__img">
+                    </div>
+                    <div class="card__item">
+                        <h3 class="card__header__hum">Гуманитарный цикл</h3>
+                        <ul class="card__list">
+                            <li class="card__list__hum">Социология управления</li>
+                            <li class="card__list__hum">Социальная психология</li>
+                            <li class="card__list__hum">Социальное проектирование и прогнозирование</li>
+                            <li class="card__list__hum">Методология и методы социологического исследования</li>
+                            <li class="card__list__hum">Логика</li>
+                            <li class="card__list__hum">Экономика</li>
+                            <li class="card__list__hum">Философия</li>
+                        </ul>
+                        <img src="{% static 'sgn2/img/book.png' %}" alt="" class="card__img">
                     </div>
                 </div>
-            {% endfor %}
+            </div>
         </div>
-        <div class="mt50"><a class="btn" href="#">Смотреть всех</a></div>
     </section>
     <section>
-        <div class="grid-12" style="margin-top: -20px">
-            <div class="block container-4">
-                <div class="h3">Контакты</div>
-                <div class="inline-text" style="margin-top: 20px">
-                    <a class="icon-text-block" href="https://vk.com/sociology.bmstu"><img src="{% static 'sgn2/img/vk-logo.svg' %}" alt=""><div>ВКонтакте</div></a>
-                    <a class="icon-text-block" href="https://t.me/soc_tech_bmstu"><img src="{% static 'sgn2/img/tg-logo.svg' %}" alt=""><div>Telegram</div></a>
+        <div class="programm">
+            <h1 class="title">Учебный план</h1>
+            <div class="programm__list">
+                <div class="programm__list__item">
+                    <button class="collapsible">1 семестр</button>
+                    <div class="content">
+                        <ul class="content__list">
+                            <li class="content__par">• Высшая математика</li>
+                            <li class="content__par">• Иностранный язык 1</li>
+                            <li class="content__par">• Информатика и программирование</li>
+                            <li class="content__par">• История России</li>
+                            <li class="content__par">• Культурология техносферы</li>
+                            <li class="content__par">• Основы права</li>
+                            <li class="content__par">• Основы социологии (введение в специльность)</li>
+                            <li class="content__par">• Психология</li>
+                            <li class="content__par">• Экономика</li>
+                            <li class="content__par__last">• Физическая культура и спорт</li>
+                        </ul>
+                    </div>
+                    <hr class="content__hr">
+                    <button class="collapsible">2 семестр</button>
+                    <div class="content">
+                        <ul class="content__list">
+                            <li class="content__par">• Высшая математика</li>
+                            <li class="content__par">• Иностранный язык 1</li>
+                            <li class="content__par">• Информатика и программирование</li>
+                            <li class="content__par">• История России</li>
+                            <li class="content__par">• Культурология техносферы</li>
+                            <li class="content__par">• Основы права</li>
+                            <li class="content__par">• Основы социологии (введение в специльность)</li>
+                            <li class="content__par">• Психология</li>
+                            <li class="content__par">• Экономика</li>
+                            <li class="content__par__last">• Физическая культура и спорт</li>
+                        </ul>
+                    </div>
+                    <hr class="content__hr">
+                    <button class="collapsible">3 семестр</button>
+                    <div class="content">
+                        <ul class="content__list">
+                            <li class="content__par">• Высшая математика</li>
+                            <li class="content__par">• Иностранный язык 1</li>
+                            <li class="content__par">• Информатика и программирование</li>
+                            <li class="content__par">• История России</li>
+                            <li class="content__par">• Культурология техносферы</li>
+                            <li class="content__par">• Основы права</li>
+                            <li class="content__par">• Основы социологии (введение в специльность)</li>
+                            <li class="content__par">• Психология</li>
+                            <li class="content__par">• Экономика</li>
+                            <li class="content__par__last">• Физическая культура и спорт</li>
+                        </ul>
+                    </div>
+                    <hr class="content__hr">
+                    <button class="collapsible">4 семестр</button>
+                    <div class="content">
+                        <ul class="content__list">
+                            <li class="content__par">• Высшая математика</li>
+                            <li class="content__par">• Иностранный язык 1</li>
+                            <li class="content__par">• Информатика и программирование</li>
+                            <li class="content__par">• История России</li>
+                            <li class="content__par">• Культурология техносферы</li>
+                            <li class="content__par">• Основы права</li>
+                            <li class="content__par">• Основы социологии (введение в специльность)</li>
+                            <li class="content__par">• Психология</li>
+                            <li class="content__par">• Экономика</li>
+                            <li class="content__par__last">• Физическая культура и спорт</li>
+                        </ul>
+                    </div>
+                    <hr class="content__hr">
                 </div>
-                <div class="contact mt25">
-                    <div class="description">Номер телефона</div>
-                    <div class="text1">8 (499) 263-63-98</div>
-                </div>
-                <div class="contact mt25">
-                    <div class="description">E-MAIL</div>
-                    <div class="text1">sgn2@bmstu.ru</div>
-                </div>
-                <div class="contact mt25">
-                    <div class="description">Время работы</div>
-                    <div class="text1">Пн-Пт с 10:00 до 17:00</div>
-                </div>
-                <div class="contact mt25">
-                    <div class="description">Адрес</div>
-                    <div class="text1">г. Москва, Рубцовская набережная, дом 2/18, эт. 7, каб. 1721а</div>
+                <div class="programm__list__item">
+                    <button class="collapsible">5 семестр</button>
+                    <div class="content">
+                        <ul class="content__list">
+                            <li class="content__par">• Высшая математика</li>
+                            <li class="content__par">• Иностранный язык 1</li>
+                            <li class="content__par">• Информатика и программирование</li>
+                            <li class="content__par">• История России</li>
+                            <li class="content__par">• Культурология техносферы</li>
+                            <li class="content__par">• Основы права</li>
+                            <li class="content__par">• Основы социологии (введение в специльность)</li>
+                            <li class="content__par">• Психология</li>
+                            <li class="content__par">• Экономика</li>
+                            <li class="content__par__last">• Физическая культура и спорт</li>
+                        </ul>
+                    </div>
+                    <hr class="content__hr">
+                    <button class="collapsible">6 семестр</button>
+                    <div class="content">
+                        <ul class="content__list">
+                            <li class="content__par">• Высшая математика</li>
+                            <li class="content__par">• Иностранный язык 1</li>
+                            <li class="content__par">• Информатика и программирование</li>
+                            <li class="content__par">• История России</li>
+                            <li class="content__par">• Культурология техносферы</li>
+                            <li class="content__par">• Основы права</li>
+                            <li class="content__par">• Основы социологии (введение в специльность)</li>
+                            <li class="content__par">• Психология</li>
+                            <li class="content__par">• Экономика</li>
+                            <li class="content__par__last">• Физическая культура и спорт</li>
+                        </ul>
+                    </div>
+                    <hr class="content__hr">
+                    <button class="collapsible">7 семестр</button>
+                    <div class="content">
+                        <ul class="content__list">
+                            <li class="content__par">• Высшая математика</li>
+                            <li class="content__par">• Иностранный язык 1</li>
+                            <li class="content__par">• Информатика и программирование</li>
+                            <li class="content__par">• История России</li>
+                            <li class="content__par">• Культурология техносферы</li>
+                            <li class="content__par">• Основы права</li>
+                            <li class="content__par">• Основы социологии (введение в специльность)</li>
+                            <li class="content__par">• Психология</li>
+                            <li class="content__par">• Экономика</li>
+                            <li class="content__par__last">• Физическая культура и спорт</li>
+                        </ul>
+                    </div>
+                    <hr class="content__hr">
+                    <button class="collapsible">8 семестр</button>
+                    <div class="content">
+                        <ul class="content__list">
+                            <li class="content__par">• Высшая математика</li>
+                            <li class="content__par">• Иностранный язык 1</li>
+                            <li class="content__par">• Информатика и программирование</li>
+                            <li class="content__par">• История России</li>
+                            <li class="content__par">• Культурология техносферы</li>
+                            <li class="content__par">• Основы права</li>
+                            <li class="content__par">• Основы социологии (введение в специльность)</li>
+                            <li class="content__par">• Психология</li>
+                            <li class="content__par">• Экономика</li>
+                            <li class="content__par__last">• Физическая культура и спорт</li>
+                        </ul>
+                    </div>
+                    <hr class="content__hr">
                 </div>
             </div>
-            <div class="container-8" style="background-image: url({% static 'sgn2/img/contacts-illustration.jpg' %})"></div>
         </div>
     </section>
+    <section class="section__white">
+        <div class="conditions">
+            <div class="conditions__text">
+                <h1 class="conditions__title">Условия поступления</h1>
+                <p class="conditions__paid__text">Платно</p>
+                <div class="conditions__stat">
+                    <h3 class="conditions__info__title">Статистика за 2023 год</h3>
+                    <ul class="stat__list">
+                        <li class="list__item__stat"><span class="score__item">265</span>Проходной<br>балл</li>
+                        <li class="list__item__stat"><span class="score__item">88</span>Средний<br>проходной балл
+                        </li>
+                        <li class="list__item__stat"><span class="score__item">10</span>Бюджетных<br> мест</li>
+                    </ul>
+                </div>
+                <div class="conditions__scores">
+                    <h3 class="conditions__info__title">Минимальные баллы ЕГЭ</h3>
+                    <ul class="scores__list">
+                        <li class="list__item__scores"><span class="score__item">45</span>Обществознание</li>
+                        <li class="list__item__scores"><span class="score__item">45</span>Информатика<span
+                                class="list__or"><br>или </span>История<span class="list__or"><br>или
+                                </span>Математика
+                        </li>
+                        <li class="list__item__scores"><span class="score__item">45</span>Русский<br>язык</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="conditions__image">
+                <img class="conditions__img" src="{% static 'sgn2/img/boy_horn.svg' %}" alt="">
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="work">
+            <div class="work__info">
+                <h1 class="title">Где я буду работать?</h1>
+                <p class="work__text">Выпускники работают в органы государственной и муниципальной власти, в
+                    Аналитическом центре при Правительстве РФ, ситуационных и аналитических центрах, силовых
+                    структурах, Яндексе, VK, банках и иных структурах.<br><br>
+                    Сегодня нет ни одной крупной компании, которая смогла бы обойтись без социологов. Кафедра
+                    сотрудничает с ведущими научно-исследовательскими центрами и организациями. </p>
+                <h3 class="work_company">Компании, в которых практикуются наши студенты</h3>
+            </div>
+        </div>
+            <div class="company_carousel_wrap">
+                <div class="company_carousel">
+                    <div class="company_layouts"><img src="{% static 'sgn2/img/rostelecom_logo.svg' %}"></div>
+                    <div class="company_layouts"><img src="{% static 'sgn2/img/roscosmos-logo.svg' %}"></div>
+                    <div class="company_layouts"><img src="{% static 'sgn2/img/rusopros_logo.svg' %}"></div>
+                    <div class="company_layouts"><img src="{% static 'sgn2/img/di-logo.svg' %}"></div>
+                    <div class="company_layouts"><img src="{% static 'sgn2/img/vciom_logo.svg' %}"></div>
+                    <div class="company_layouts"><img src="{% static 'sgn2/img/tsirkon_logo.svg' %}"></div>
+                    <div class="company_layouts"><img src="{% static 'sgn2/img/di-logo.svg' %}"></div>
+                    <div class="company_layouts"><img src="{% static 'sgn2/img/tsirkon_logo.svg' %}"></div>
 
-    <script>
-        const advantagesSlider = document.querySelector('.advantages');
-        const advantagesSlides = document.querySelectorAll('.advantage');
-        const visibleAdvSlides = 3; // количество видимых слайдов
-        const advSlideWidth = advantagesSlides[0].clientWidth + window.innerHeight * 2 / 100; // ширина слайда + отступ
+                    <div class="company_layouts"><img src="{% static 'sgn2/img/rostelecom_logo.svg' %}"></div>
+                    <div class="company_layouts"><img src="{% static 'sgn2/img/roscosmos-logo.svg' %}"></div>
+                    <div class="company_layouts"><img src="{% static 'sgn2/img/rusopros_logo.svg' %}"></div>
+                    <div class="company_layouts"><img src="{% static 'sgn2/img/di-logo.svg' %}"></div>
+                    <div class="company_layouts"><img src="{% static 'sgn2/img/vciom_logo.svg' %}"></div>
+                    <div class="company_layouts"><img src="{% static 'sgn2/img/tsirkon_logo.svg' %}"></div>
+                    <div class="company_layouts"><img src="{% static 'sgn2/img/di-logo.svg' %}"></div>
+                    <div class="company_layouts"><img src="{% static 'sgn2/img/tsirkon_logo.svg' %}"></div>
+                </div>
+            </div>
+    </section>
+</div>
 
-        let currentAdvantagesIndex = 0;
+<script src="{% static 'sgn2/js/collapse.js' %}"></script>
+<script src="{% static 'sgn2/js/containerToggle.js' %}"></script>
 
-        function showAdvantagesSlides() {
-            advantagesSlider.style.transform = `translateX(-${currentAdvantagesIndex * advSlideWidth}px)`;
-        }
-
-        function nextAdvantagesSlide() {
-            if (currentAdvantagesIndex + visibleAdvSlides < advantagesSlides.length) {
-                currentAdvantagesIndex++;
-            }
-            showAdvantagesSlides();
-        }
-
-        function prevAdvantagesSlide() {
-            if (currentAdvantagesIndex > 0) {
-                currentAdvantagesIndex--;
-            }
-            showAdvantagesSlides();
-        }
-
-        showAdvantagesSlides();
-
-        // Добавляем обработчики событий для кнопок "Next" и "Prev"
-        document.getElementById('adv-next').addEventListener('click', nextAdvantagesSlide);
-        document.getElementById('adv-prev').addEventListener('click', prevAdvantagesSlide);
-
-
-
-        const teachersSlider = document.querySelector('.teachers');
-        const teachersSlides = document.querySelectorAll('.teacher');
-        const visibleTeachersSlides = 2; // количество видимых слайдов
-        const teachersSlideWidth = teachersSlides[0].clientWidth + window.innerHeight * 2 / 100; // ширина слайда + отступ
-
-        let currentTeachersIndex = 0;
-
-        function showTeachersSlides() {
-            teachersSlider.style.transform = `translateX(-${currentTeachersIndex * teachersSlideWidth}px)`;
-        }
-
-        function nextTeachersSlide() {
-            if (currentTeachersIndex + visibleTeachersSlides < teachersSlides.length) {
-                currentTeachersIndex++;
-            }
-            showTeachersSlides();
-        }
-
-        function prevTeachersSlide() {
-            if (currentTeachersIndex > 0) {
-                currentTeachersIndex--;
-            }
-            showTeachersSlides();
-        }
-
-        showTeachersSlides();
-
-        // Добавляем обработчики событий для кнопок "Next" и "Prev"
-        document.getElementById('teacher-next').addEventListener('click', nextTeachersSlide);
-        document.getElementById('teacher-prev').addEventListener('click', prevTeachersSlide);
-    </script>
 {% endblock %}
+
