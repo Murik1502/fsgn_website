@@ -2,11 +2,13 @@ import os
 from django.db import models
 from django.db import transaction
 
+
 def get_upload_path(instance, filename):
     if isinstance(instance, Teacher):
         return os.path.join('photos/teachers', "%s" % instance.name, filename)
     elif isinstance(instance, Company):
         return os.path.join('companies', "%s" % instance.name, filename)
+
 
 class Teacher(models.Model):
     name = models.CharField('ФИО', max_length=32)
@@ -52,7 +54,7 @@ class BachelorPlan(models.Model):
         return f"Семестр {self.number}"
 
     class Meta:
-        verbose_name_plural = "Учебные планы (бакалавриат)"
+        verbose_name_plural = "Учебный план (бакалавриат)"
         verbose_name = "Учебный план (бакалавриат)"
 
 
@@ -63,14 +65,20 @@ class MasterPlan(models.Model):
         return f"Семестр {self.number}"
 
     class Meta:
-        verbose_name_plural = "Учебные планы (магистратура)"
+        verbose_name_plural = "Учебный план (магистратура)"
         verbose_name = "Учебный план (магистратура)"
 
 
-class Discipline(models.Model):
+class BachelorDiscipline(models.Model):
     name = models.CharField('Название', max_length=64)
-    bachelor_semester = models.ForeignKey(BachelorPlan, on_delete=models.SET_NULL, null=True, blank=True, related_name='disciplines')
-    master_semester = models.ForeignKey(MasterPlan, on_delete=models.SET_NULL, null=True, blank=True, related_name='disciplines')
+    bachelor_semester = models.ForeignKey(BachelorPlan, on_delete=models.SET_NULL, null=True, blank=True,
+                                          related_name='disciplines')
+
+
+class MasterDiscipline(models.Model):
+    name = models.CharField('Название', max_length=64)
+    master_semester = models.ForeignKey(MasterPlan, on_delete=models.SET_NULL, null=True, blank=True,
+                                        related_name='disciplines')
 
     def __str__(self):
         return self.name
