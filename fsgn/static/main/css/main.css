@@ -158,6 +158,10 @@ footer {
     margin-bottom: 25px;
 }
 
+.mt25 {
+    margin-top: 25px;
+}
+
 footer h3 {
     font-size: 1.4rem;
     color: white;

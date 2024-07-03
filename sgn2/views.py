@@ -1,13 +1,7 @@
-# Create your views here.
 from django.shortcuts import render
-# Create your views here.
-
 from django.views import View
-
 from .vk_parser import get_posts
-
-from .models import Teacher, Advantage, Plan, Discipline
-
+from .models import Teacher, Advantage, BachelorPlan, MasterPlan, Company, BachelorStatistics, MasterStatistics, BachelorProgram, MasterProgram
 
 class About(View):
     def get(self, request):
@@ -17,17 +11,22 @@ class About(View):
         return render(request, 'sgn2/about.html', context={
             'info': data,
             'teachers': teachers,
-            'advantages': advantages
+            'advantages': advantages,
         })
-
 
 class Applicant(View):
     def get(self, request):
         data = get_posts()
-        # semesters = Plan.objects.order_by('number')
-        # for semester in semesters:
-        #     discs = Discipline.objects.filter(semester=semester)
-        return render(request, 'sgn2/applicant.html', context={'info': data})
+        companies = Company.objects.all()
+        bachelor_programs = BachelorProgram.objects.all().prefetch_related('semesters__disciplines', 'statistics')
+        master_programs = MasterProgram.objects.all().prefetch_related('semesters__disciplines', 'statistics')
+        return render(request, 'sgn2/applicant.html', context={
+            'info': data,
+            'companies': companies,
+            'bachelor_programs': bachelor_programs,
+            'master_programs': master_programs,
+        })
+
 
 
 class History(View):
