@@ -106,8 +106,7 @@ active
         <div class="programm">
             <h1 class="title">Учебный план</h1>
             <div class="programm__list">
-                {% for program in bachelor_programs %}
-                {% for semester in program.semesters.all %}
+                {% for semester in bachelor_semesters %}
                 <div class="programm__list__item">
                     <button class="collapsible">{{ semester.number }} семестр</button>
                     <div class="content">
@@ -120,7 +119,6 @@ active
                     <hr class="content__hr">
                 </div>
                 {% endfor %}
-                {% endfor %}
             </div>
         </div>
     </section>
@@ -131,8 +129,7 @@ active
                 <p class="conditions__paid__text">Платно</p>
                 <div class="conditions__stat">
                     <h3 class="conditions__info__title">Статистика за 2023 год</h3>
-                    {% for program in bachelor_programs %}
-                    {% for statistic in program.statistics.all %}
+                    {% for statistic in bachelor_statistics %}
                     <ul class="stat__list">
                         <li class="list__item__stat">
                             <span class="score__item">{{ statistic.passing_score }}</span> Проходной<br>балл
@@ -145,12 +142,10 @@ active
                         </li>
                     </ul>
                     {% endfor %}
-                    {% endfor %}
                 </div>
                 <div class="conditions__scores">
                     <h3 class="conditions__info__title">Минимальные баллы ЕГЭ</h3>
-                    {% for program in bachelor_programs %}
-                    {% for statistic in program.statistics.all %}
+                    {% for statistic in bachelor_statistics %}
                     <ul class="scores__list">
                         <li class="list__item__scores"><span
                                 class="score__item">{{ statistic.subject1_min_score }}</span>Обществознание
@@ -164,7 +159,6 @@ active
                                 class="score__item">{{ statistic.subject3_min_score }}</span>Русский<br>язык
                         </li>
                     </ul>
-                    {% endfor %}
                     {% endfor %}
                 </div>
             </div>
@@ -270,9 +264,8 @@ active
     <section>
         <div class="programm">
             <h1 class="title">Учебный план</h1>
-            {% for program in master_programs %}
             <div class="programm__list">
-                {% for semester in program.semesters.all %}
+                {% for semester in master_semesters %}
                 <div class="programm__list__item">
                     <button class="collapsible">{{ semester.number }} семестр</button>
                     <div class="content">
@@ -286,7 +279,6 @@ active
                 </div>
                 {% endfor %}
             </div>
-            {% endfor %}
         </div>
     </section>
 
@@ -297,8 +289,7 @@ active
                 <p class="conditions__paid__text">Платно</p>
                 <div class="conditions__stat">
                     <h3 class="conditions__info__title">Статистика за 2023 год</h3>
-                    {% for program in master_programs %}
-                    {% for statistic in program.statistics.all %}
+                    {% for statistic in master_semesters %}
                     <ul class="stat__list">
                         <li class="list__item__stat">
                             <span class="score__item">{{ statistic.passing_score }}</span> Проходной<br>балл
@@ -307,7 +298,6 @@ active
                             <span class="score__item">{{ statistic.budget_places }}</span> Платных<br> мест
                         </li>
                     </ul>
-                    {% endfor %}
                     {% endfor %}
                 </div>
             </div>

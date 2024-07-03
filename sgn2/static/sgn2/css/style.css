@@ -611,7 +611,7 @@ li.list__item__scores:last-child {
 
 @media(max-width: 1230px) {
   html {
-    font-size: 55%;
+    font-size: 88%;
   }
   .main__image {
     min-width: 26vw;
@@ -619,7 +619,7 @@ li.list__item__scores:last-child {
 
   .main__title {
     width: 571px;
-    font-size: 4.8em;
+    font-size: 3em;
   }
 
   .main__desc {
@@ -642,15 +642,7 @@ li.list__item__scores:last-child {
   }
 }
 
-footer {
-    font-size: 100%;
-}
-
 @media(max-width: 965px) {
-  html {
-    font-size: 55%;
-  }
-
   .card {
     flex-direction: column;
   }

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Teacher, Advantage, Company, Discipline, BachelorPlan, MasterPlan, BachelorStatistics, MasterStatistics, BachelorProgram, MasterProgram
+from .models import Teacher, Advantage, Company, Discipline, BachelorPlan, MasterPlan, BachelorStatistics, MasterStatistics
 
 @admin.register(Teacher)
 class TeacherAdmin(admin.ModelAdmin):
@@ -14,13 +14,11 @@ class AdvantageAdmin(admin.ModelAdmin):
 class BachelorDisciplineInline(admin.TabularInline):
     model = Discipline
     extra = 0
-    fields = ('name', 'bachelor_semester')
     can_delete = False
 
 class MasterDisciplineInline(admin.TabularInline):
     model = Discipline
     extra = 0
-    fields = ('name', 'master_semester')
     can_delete = False
 
 @admin.register(BachelorPlan)
@@ -30,8 +28,6 @@ class BachelorPlanAdmin(admin.ModelAdmin):
 @admin.register(MasterPlan)
 class MasterPlanAdmin(admin.ModelAdmin):
     inlines = [MasterDisciplineInline]
-
-
 
 @admin.register(Company)
 class CompanyAdmin(admin.ModelAdmin):
@@ -46,11 +42,3 @@ class BachelorStatisticsAdmin(admin.ModelAdmin):
 @admin.register(MasterStatistics)
 class MasterStatisticsAdmin(admin.ModelAdmin):
     list_display = ['passing_score', 'budget_places']
-
-@admin.register(BachelorProgram)
-class BachelorProgramAdmin(admin.ModelAdmin):
-    filter_horizontal = ['semesters', 'statistics']
-
-@admin.register(MasterProgram)
-class MasterProgramAdmin(admin.ModelAdmin):
-    filter_horizontal = ['semesters', 'statistics']

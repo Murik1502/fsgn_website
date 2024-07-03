@@ -1,5 +1,6 @@
 import os
 from django.db import models
+from django.db import transaction
 
 def get_upload_path(instance, filename):
     if isinstance(instance, Teacher):
@@ -14,7 +15,7 @@ class Teacher(models.Model):
     photo = models.ImageField('Фото', upload_to=get_upload_path, blank=True)
 
     def __str__(self):
-        return f"{self.name})"
+        return f"{self.name}"
 
     class Meta:
         verbose_name_plural = "преподаватели"
@@ -48,22 +49,22 @@ class BachelorPlan(models.Model):
     number = models.IntegerField('Номер семестра', unique=True)
 
     def __str__(self):
-        return f"Семестр {self.number} (бакалавриат)"
+        return f"Семестр {self.number}"
 
     class Meta:
-        verbose_name_plural = "семестры (бакалавриат)"
-        verbose_name = "семестр (бакалавриат)"
+        verbose_name_plural = "Учебные планы (бакалавриат)"
+        verbose_name = "Учебный план (бакалавриат)"
 
 
 class MasterPlan(models.Model):
     number = models.IntegerField('Номер семестра', unique=True)
 
     def __str__(self):
-        return f"Семестр {self.number} (магистратура)"
+        return f"Семестр {self.number}"
 
     class Meta:
-        verbose_name_plural = "семестры (магистратура)"
-        verbose_name = "семестр (магистратура)"
+        verbose_name_plural = "Учебные планы (магистратура)"
+        verbose_name = "Учебный план (магистратура)"
 
 
 class Discipline(models.Model):
@@ -71,14 +72,6 @@ class Discipline(models.Model):
     bachelor_semester = models.ForeignKey(BachelorPlan, on_delete=models.SET_NULL, null=True, blank=True, related_name='disciplines')
     master_semester = models.ForeignKey(MasterPlan, on_delete=models.SET_NULL, null=True, blank=True, related_name='disciplines')
 
-    def delete(self, *args, **kwargs):
-        with transaction.atomic():
-            if self.bachelor_semester:
-                self.bachelor_semester = None
-                self.save()
-            if self.master_semester:
-                self.master_semester = None
-                self.save()
     def __str__(self):
         return self.name
 
@@ -113,28 +106,3 @@ class MasterStatistics(models.Model):
     class Meta:
         verbose_name_plural = "условия поступления (магистратура)"
         verbose_name = "условия поступления (магистратура)"
-
-
-class BachelorProgram(models.Model):
-    semesters = models.ManyToManyField(BachelorPlan, related_name='bachelor_programs')
-    statistics = models.ManyToManyField(BachelorStatistics, related_name='bachelor_programs')
-
-    def __str__(self):
-        return f"Бакалаврская программа"
-
-    class Meta:
-        verbose_name_plural = "бакалаврская программа"
-        verbose_name = "бакалаврская программа"
-
-
-class MasterProgram(models.Model):
-    semesters = models.ManyToManyField(MasterPlan, related_name='master_programs')
-    statistics = models.ManyToManyField(MasterStatistics, related_name='master_programs')
-
-    def __str__(self):
-        return f"Магистерская программа"
-
-    class Meta:
-        verbose_name_plural = "магистерская программа"
-        verbose_name = "магистерская программа"
-
