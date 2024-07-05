@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Teacher, Advantage, BachelorCompany, MasterCompany, Discipline, BachelorPlan, MasterPlan, BachelorStatistics, MasterStatistics
+from .models import Teacher, Advantage, BachelorCompany, MasterCompany, BachelorDiscipline, MasterDiscipline, BachelorPlan, MasterPlan, BachelorStatistics, MasterStatistics
 
 @admin.register(Teacher)
 class TeacherAdmin(admin.ModelAdmin):
@@ -12,12 +12,12 @@ class AdvantageAdmin(admin.ModelAdmin):
     list_display = ['description']
 
 class BachelorDisciplineInline(admin.TabularInline):
-    model = Discipline
+    model = BachelorDiscipline
     extra = 0
     can_delete = False
 
 class MasterDisciplineInline(admin.TabularInline):
-    model = Discipline
+    model = MasterDiscipline
     extra = 0
     can_delete = False
 
