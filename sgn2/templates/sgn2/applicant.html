@@ -103,22 +103,43 @@ active
         </div>
     </section>
     <section>
-        <div class="programm">
+        <div class="program">
             <h1 class="title">Учебный план</h1>
-            <div class="programm__list">
-                {% for semester in bachelor_semesters %}
-                <div class="programm__list__item">
-                    <button class="collapsible">{{ semester.number }} семестр</button>
-                    <div class="content">
-                        <ul class="content__list">
-                            {% for discipline in semester.disciplines.all %}
-                            <li class="content__par">• {{ discipline.name }}</li>
-                            {% endfor %}
-                        </ul>
+            <div class="program__list">
+                <div class="program_list">
+                    {% for semester in bachelor_semesters %}
+                    {% if forloop.counter0|divisibleby:2 %}
+                    <div>
+                        <button class="collapsible">{{ semester.number }} семестр</button>
+                        <div class="content">
+                            <ul class="content__list">
+                                {% for discipline in semester.disciplines.all %}
+                                <li class="content__par">• {{ discipline.name }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <hr class="content__hr">
                     </div>
-                    <hr class="content__hr">
+                    {% endif %}
+                    {% endfor %}
                 </div>
-                {% endfor %}
+                <div class="program_list">
+                    {% for semester in bachelor_semesters %}
+                    {% if not forloop.counter0|divisibleby:2 %}
+                    <div>
+                        <button class="collapsible">{{ semester.number }} семестр</button>
+                        <div class="content">
+                            <ul class="content__list">
+                                {% for discipline in semester.disciplines.all %}
+                                <li class="content__par">• {{ discipline.name }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <hr class="content__hr">
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </section>
@@ -181,7 +202,7 @@ active
         </div>
         <div class="company_carousel_wrap">
             <div class="company_carousel">
-                {% for company in companies %}
+                {% for company in bachelor_companies %}
                 <div class="company_layouts"><img src="{{ company.logo.url }}" alt="{{ company.name }}"></div>
                 {% endfor %}
             </div>
@@ -262,22 +283,43 @@ active
         </div>
     </section>
     <section>
-        <div class="programm">
+        <div class="program">
             <h1 class="title">Учебный план</h1>
-            <div class="programm__list">
-                {% for semester in master_semesters %}
-                <div class="programm__list__item">
-                    <button class="collapsible">{{ semester.number }} семестр</button>
-                    <div class="content">
-                        <ul class="content__list">
-                            {% for discipline in semester.disciplines.all %}
-                            <li class="content__par">• {{ discipline.name }}</li>
-                            {% endfor %}
-                        </ul>
+            <div class="program__list">
+                <div class="program_list">
+                    {% for semester in master_semesters %}
+                    {% if forloop.counter0|divisibleby:2 %}
+                    <div>
+                        <button class="collapsible">{{ semester.number }} семестр</button>
+                        <div class="content">
+                            <ul class="content__list">
+                                {% for discipline in semester.disciplines.all %}
+                                <li class="content__par">• {{ discipline.name }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <hr class="content__hr">
                     </div>
-                    <hr class="content__hr">
+                    {% endif %}
+                    {% endfor %}
                 </div>
-                {% endfor %}
+                <div class="program_list">
+                    {% for semester in master_semesters %}
+                    {% if not forloop.counter0|divisibleby:2 %}
+                    <div>
+                        <button class="collapsible">{{ semester.number }} семестр</button>
+                        <div class="content">
+                            <ul class="content__list">
+                                {% for discipline in semester.disciplines.all %}
+                                <li class="content__par">• {{ discipline.name }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <hr class="content__hr">
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </section>
@@ -289,7 +331,7 @@ active
                 <p class="conditions__paid__text">Платно</p>
                 <div class="conditions__stat">
                     <h3 class="conditions__info__title">Статистика за 2023 год</h3>
-                    {% for statistic in master_semesters %}
+                    {% for statistic in master_statistics %}
                     <ul class="stat__list">
                         <li class="list__item__stat">
                             <span class="score__item">{{ statistic.passing_score }}</span> Проходной<br>балл
@@ -320,7 +362,7 @@ active
         </div>
         <div class="company_carousel_wrap">
             <div class="company_carousel">
-                {% for company in companies %}
+                {% for company in master_companies %}
                 <div class="company_layouts"><img src="{{ company.logo.url }}" alt="{{ company.name }}"></div>
                 {% endfor %}
             </div>

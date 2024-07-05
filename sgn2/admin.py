@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Teacher, Advantage, Company, Discipline, BachelorPlan, MasterPlan, BachelorStatistics, MasterStatistics
+from .models import Teacher, Advantage, BachelorCompany, MasterCompany, Discipline, BachelorPlan, MasterPlan, BachelorStatistics, MasterStatistics
 
 @admin.register(Teacher)
 class TeacherAdmin(admin.ModelAdmin):
@@ -29,8 +29,13 @@ class BachelorPlanAdmin(admin.ModelAdmin):
 class MasterPlanAdmin(admin.ModelAdmin):
     inlines = [MasterDisciplineInline]
 
-@admin.register(Company)
-class CompanyAdmin(admin.ModelAdmin):
+@admin.register(BachelorCompany)
+class BachelorCompanyAdmin(admin.ModelAdmin):
+    list_display = ['name', 'logo']
+    search_fields = ['name']
+
+@admin.register(MasterCompany)
+class MasterCompanyAdmin(admin.ModelAdmin):
     list_display = ['name', 'logo']
     search_fields = ['name']
 

@@ -5,8 +5,10 @@ from django.db import transaction
 def get_upload_path(instance, filename):
     if isinstance(instance, Teacher):
         return os.path.join('photos/teachers', "%s" % instance.name, filename)
-    elif isinstance(instance, Company):
-        return os.path.join('companies', "%s" % instance.name, filename)
+    elif isinstance(instance, BachelorCompany):
+        return os.path.join('companies/bachelor', "%s" % instance.name, filename)
+    elif isinstance(instance, MasterCompany):
+        return os.path.join('companies/master', "%s" % instance.name, filename)
 
 class Teacher(models.Model):
     name = models.CharField('ФИО', max_length=32)
@@ -33,7 +35,7 @@ class Advantage(models.Model):
         verbose_name = "преимущество"
 
 
-class Company(models.Model):
+class BachelorCompany(models.Model):
     name = models.CharField('Название', max_length=64, null=False)
     logo = models.FileField('Логотип', upload_to=get_upload_path, blank=False)
 
@@ -41,9 +43,19 @@ class Company(models.Model):
         return self.name
 
     class Meta:
-        verbose_name_plural = "компании"
-        verbose_name = "компания"
+        verbose_name_plural = "компании (бакалавриат)"
+        verbose_name = "компания (бакалавриат)"
 
+class MasterCompany(models.Model):
+    name = models.CharField('Название', max_length=64, null=False)
+    logo = models.FileField('Логотип', upload_to=get_upload_path, blank=False)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name_plural = "компании (магистратура)"
+        verbose_name = "компания (магистратура)"
 
 class BachelorPlan(models.Model):
     number = models.IntegerField('Номер семестра', unique=True)
