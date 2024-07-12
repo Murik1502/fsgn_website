@@ -106,6 +106,7 @@ active
         <div class="program">
             <h1 class="title">Учебный план</h1>
             <div class="program__list">
+                {% if bachelor_semesters %}
                 <div class="program_list">
                     {% for semester in bachelor_semesters %}
                     {% if forloop.counter0|divisibleby:2 %}
@@ -140,6 +141,156 @@ active
                     {% endif %}
                     {% endfor %}
                 </div>
+                {% else %}
+                <div class="program_list">
+                    <div>
+                        <button class="collapsible">1 семестр</button>
+                        <div class="content">
+                            <ul class="content__list">
+                                <li class="content__par">• Высшая математика</li>
+                                <li class="content__par">• Иностранный язык 1</li>
+                                <li class="content__par">• Информатика и программирование</li>
+                                <li class="content__par">• История России</li>
+                                <li class="content__par">• Культурология техносферы</li>
+                                <li class="content__par">• Основы права</li>
+                                <li class="content__par">• Основы социологии (введение в специльность)</li>
+                                <li class="content__par">• Психология</li>
+                                <li class="content__par">• Экономика</li>
+                                <li class="content__par">• Физическая культура и спорт</li>
+                            </ul>
+                        </div>
+                        <hr class="content__hr">
+                    </div>
+                    <div>
+                        <button class="collapsible">2 семестр</button>
+                        <div class="content">
+                            <ul class="content__list">
+                                <li class="content__par">• Высшая математика</li>
+                                <li class="content__par">• Иностранный язык 1</li>
+                                <li class="content__par">• Информатика и программирование</li>
+                                <li class="content__par">• История России</li>
+                                <li class="content__par">• Культурология техносферы</li>
+                                <li class="content__par">• Основы права</li>
+                                <li class="content__par">• Основы социологии (введение в специльность)</li>
+                                <li class="content__par">• Психология</li>
+                                <li class="content__par">• Экономика</li>
+                                <li class="content__par">• Физическая культура и спорт</li>
+                            </ul>
+                        </div>
+                        <hr class="content__hr">
+                    </div>
+                    <div>
+                        <button class="collapsible">3 семестр</button>
+                        <div class="content">
+                            <ul class="content__list">
+                                <li class="content__par">• Высшая математика</li>
+                                <li class="content__par">• Иностранный язык 1</li>
+                                <li class="content__par">• Информатика и программирование</li>
+                                <li class="content__par">• История России</li>
+                                <li class="content__par">• Культурология техносферы</li>
+                                <li class="content__par">• Основы права</li>
+                                <li class="content__par">• Основы социологии (введение в специльность)</li>
+                                <li class="content__par">• Психология</li>
+                                <li class="content__par">• Экономика</li>
+                                <li class="content__par">• Физическая культура и спорт</li>
+                            </ul>
+                        </div>
+                        <hr class="content__hr">
+                    </div>
+                    <div>
+                        <button class="collapsible">4 семестр</button>
+                        <div class="content">
+                            <ul class="content__list">
+                                <li class="content__par">• Высшая математика</li>
+                                <li class="content__par">• Иностранный язык 1</li>
+                                <li class="content__par">• Информатика и программирование</li>
+                                <li class="content__par">• История России</li>
+                                <li class="content__par">• Культурология техносферы</li>
+                                <li class="content__par">• Основы права</li>
+                                <li class="content__par">• Основы социологии (введение в специльность)</li>
+                                <li class="content__par">• Психология</li>
+                                <li class="content__par">• Экономика</li>
+                                <li class="content__par">• Физическая культура и спорт</li>
+                            </ul>
+                        </div>
+                        <hr class="content__hr">
+                    </div>
+                </div>
+                <div class="program_list">
+                    <div>
+                        <button class="collapsible">5 семестр</button>
+                        <div class="content">
+                            <ul class="content__list">
+                                <li class="content__par">• Высшая математика</li>
+                                <li class="content__par">• Иностранный язык 1</li>
+                                <li class="content__par">• Информатика и программирование</li>
+                                <li class="content__par">• История России</li>
+                                <li class="content__par">• Культурология техносферы</li>
+                                <li class="content__par">• Основы права</li>
+                                <li class="content__par">• Основы социологии (введение в специльность)</li>
+                                <li class="content__par">• Психология</li>
+                                <li class="content__par">• Экономика</li>
+                                <li class="content__par">• Физическая культура и спорт</li>
+                            </ul>
+                        </div>
+                        <hr class="content__hr">
+                    </div>
+                    <div>
+                        <button class="collapsible">6 семестр</button>
+                        <div class="content">
+                            <ul class="content__list">
+                                <li class="content__par">• Высшая математика</li>
+                                <li class="content__par">• Иностранный язык 1</li>
+                                <li class="content__par">• Информатика и программирование</li>
+                                <li class="content__par">• История России</li>
+                                <li class="content__par">• Культурология техносферы</li>
+                                <li class="content__par">• Основы права</li>
+                                <li class="content__par">• Основы социологии (введение в специльность)</li>
+                                <li class="content__par">• Психология</li>
+                                <li class="content__par">• Экономика</li>
+                                <li class="content__par">• Физическая культура и спорт</li>
+                            </ul>
+                        </div>
+                        <hr class="content__hr">
+                    </div>
+                    <div>
+                        <button class="collapsible">7 семестр</button>
+                        <div class="content">
+                            <ul class="content__list">
+                                <li class="content__par">• Высшая математика</li>
+                                <li class="content__par">• Иностранный язык 1</li>
+                                <li class="content__par">• Информатика и программирование</li>
+                                <li class="content__par">• История России</li>
+                                <li class="content__par">• Культурология техносферы</li>
+                                <li class="content__par">• Основы права</li>
+                                <li class="content__par">• Основы социологии (введение в специльность)</li>
+                                <li class="content__par">• Психология</li>
+                                <li class="content__par">• Экономика</li>
+                                <li class="content__par">• Физическая культура и спорт</li>
+                            </ul>
+                        </div>
+                        <hr class="content__hr">
+                    </div>
+                    <div>
+                        <button class="collapsible">8 семестр</button>
+                        <div class="content">
+                            <ul class="content__list">
+                                <li class="content__par">• Высшая математика</li>
+                                <li class="content__par">• Иностранный язык 1</li>
+                                <li class="content__par">• Информатика и программирование</li>
+                                <li class="content__par">• История России</li>
+                                <li class="content__par">• Культурология техносферы</li>
+                                <li class="content__par">• Основы права</li>
+                                <li class="content__par">• Основы социологии (введение в специльность)</li>
+                                <li class="content__par">• Психология</li>
+                                <li class="content__par">• Экономика</li>
+                                <li class="content__par">• Физическая культура и спорт</li>
+                            </ul>
+                        </div>
+                        <hr class="content__hr">
+                    </div>
+                </div>
+                {% endif %}
             </div>
         </div>
     </section>
@@ -150,6 +301,7 @@ active
                 <p class="conditions__paid__text">Платно</p>
                 <div class="conditions__stat">
                     <h3 class="conditions__info__title">Статистика за 2023 год</h3>
+                    {% if bachelor_statistics %}
                     {% for statistic in bachelor_statistics %}
                     <ul class="stat__list">
                         <li class="list__item__stat">
@@ -163,9 +315,17 @@ active
                         </li>
                     </ul>
                     {% endfor %}
+                    {% else %}
+                    <ul class="stat__list">
+                        <li class="list__item__stat"><span class="score__item">265</span>Проходной<br>балл</li>
+                        <li class="list__item__stat"><span class="score__item">88</span>Средний<br>проходной балл</li>
+                        <li class="list__item__stat"><span class="score__item">10</span>Бюджетных<br>мест</li>
+                    </ul>
+                    {% endif %}
                 </div>
                 <div class="conditions__scores">
                     <h3 class="conditions__info__title">Минимальные баллы ЕГЭ</h3>
+                    {% if bachelor_statistics %}
                     {% for statistic in bachelor_statistics %}
                     <ul class="scores__list">
                         <li class="list__item__scores"><span
@@ -173,14 +333,22 @@ active
                         </li>
                         <li class="list__item__scores"><span
                                 class="score__item">{{ statistic.subject2_min_score }}</span>Информатика<span
-                                class="list__or"><br>или </span>История<span class="list__or"><br>или
-                                                </span>Математика
+                                class="list__or"><br>или </span>История<span class="list__or"><br>или</span>Математика
                         </li>
                         <li class="list__item__scores"><span
                                 class="score__item">{{ statistic.subject3_min_score }}</span>Русский<br>язык
                         </li>
                     </ul>
                     {% endfor %}
+                    {% else %}
+                    <ul class="scores__list">
+                        <li class="list__item__scores"><span class="score__item">45</span>Обществознание</li>
+                        <li class="list__item__scores"><span class="score__item">45</span>Информатика<span
+                                class="list__or"><br>или </span>История<span class="list__or"><br>или</span>Математика
+                        </li>
+                        <li class="list__item__scores"><span class="score__item">45</span>Русский<br>язык</li>
+                    </ul>
+                    {% endif %}
                 </div>
             </div>
             <div class="conditions__image">
@@ -188,6 +356,7 @@ active
             </div>
         </div>
     </section>
+
     <section>
         <div class="work">
             <div class="work__info">
@@ -202,9 +371,29 @@ active
         </div>
         <div class="company_carousel_wrap">
             <div class="company_carousel">
+                {% if bachelor_companies %}
                 {% for company in bachelor_companies %}
                 <div class="company_layouts"><img src="{{ company.logo.url }}" alt="{{ company.name }}"></div>
                 {% endfor %}
+                {% else %}
+                <div class="company_layouts"><img src="{% static 'sgn2/img/rostelecom_logo.svg' %}"></div>
+                <div class="company_layouts"><img src="{% static 'sgn2/img/roscosmos-logo.svg' %}"></div>
+                <div class="company_layouts"><img src="{% static 'sgn2/img/rusopros_logo.svg' %}"></div>
+                <div class="company_layouts"><img src="{% static 'sgn2/img/di-logo.svg' %}"></div>
+                <div class="company_layouts"><img src="{% static 'sgn2/img/vciom_logo.svg' %}"></div>
+                <div class="company_layouts"><img src="{% static 'sgn2/img/tsirkon_logo.svg' %}"></div>
+                <div class="company_layouts"><img src="{% static 'sgn2/img/di-logo.svg' %}"></div>
+                <div class="company_layouts"><img src="{% static 'sgn2/img/tsirkon_logo.svg' %}"></div>
+
+                <div class="company_layouts"><img src="{% static 'sgn2/img/rostelecom_logo.svg' %}"></div>
+                <div class="company_layouts"><img src="{% static 'sgn2/img/roscosmos-logo.svg' %}"></div>
+                <div class="company_layouts"><img src="{% static 'sgn2/img/rusopros_logo.svg' %}"></div>
+                <div class="company_layouts"><img src="{% static 'sgn2/img/di-logo.svg' %}"></div>
+                <div class="company_layouts"><img src="{% static 'sgn2/img/vciom_logo.svg' %}"></div>
+                <div class="company_layouts"><img src="{% static 'sgn2/img/tsirkon_logo.svg' %}"></div>
+                <div class="company_layouts"><img src="{% static 'sgn2/img/di-logo.svg' %}"></div>
+                <div class="company_layouts"><img src="{% static 'sgn2/img/tsirkon_logo.svg' %}"></div>
+                {% endif %}
             </div>
         </div>
     </section>
@@ -286,6 +475,7 @@ active
         <div class="program">
             <h1 class="title">Учебный план</h1>
             <div class="program__list">
+                {% if master_semesters %}
                 <div class="program_list">
                     {% for semester in master_semesters %}
                     {% if forloop.counter0|divisibleby:2 %}
@@ -320,10 +510,71 @@ active
                     {% endif %}
                     {% endfor %}
                 </div>
+                {% else %}
+                <div class="program_list">
+                    <div>
+                        <button class="collapsible">1 семестр</button>
+                        <div class="content">
+                            <ul class="content__list">
+                                <li class="content__par">• Высшая математика</li>
+                                <li class="content__par">• Иностранный язык 1</li>
+                                <li class="content__par">• Информатика и программирование</li>
+                                <li class="content__par">• История России</li>
+                                <li class="content__par">• Культурология техносферы</li>
+                                <li class="content__par">• Основы права</li>
+                            </ul>
+                        </div>
+                        <hr class="content__hr">
+                    </div>
+                    <div>
+                        <button class="collapsible">2 семестр</button>
+                        <div class="content">
+                            <ul class="content__list">
+                                <li class="content__par">• Высшая математика</li>
+                                <li class="content__par">• Иностранный язык 1</li>
+                                <li class="content__par">• Информатика и программирование</li>
+                                <li class="content__par">• История России</li>
+                                <li class="content__par">• Культурология техносферы</li>
+                                <li class="content__par">• Основы права</li>
+                            </ul>
+                        </div>
+                        <hr class="content__hr">
+                    </div>
+                </div>
+                <div class="program_list">
+                    <div>
+                        <button class="collapsible">3 семестр</button>
+                        <div class="content">
+                            <ul class="content__list">
+                                <li class="content__par">• Высшая математика</li>
+                                <li class="content__par">• Иностранный язык 1</li>
+                                <li class="content__par">• Информатика и программирование</li>
+                                <li class="content__par">• История России</li>
+                                <li class="content__par">• Культурология техносферы</li>
+                                <li class="content__par">• Основы права</li>
+                            </ul>
+                        </div>
+                        <hr class="content__hr">
+                    </div>
+                    <div>
+                        <button class="collapsible">4 семестр</button>
+                        <div class="content">
+                            <ul class="content__list">
+                                <li class="content__par">• Высшая математика</li>
+                                <li class="content__par">• Иностранный язык 1</li>
+                                <li class="content__par">• Информатика и программирование</li>
+                                <li class="content__par">• История России</li>
+                                <li class="content__par">• Культурология техносферы</li>
+                                <li class="content__par">• Основы права</li>
+                            </ul>
+                        </div>
+                        <hr class="content__hr">
+                    </div>
+                </div>
+                {% endif %}
             </div>
         </div>
     </section>
-
     <section class="section__white">
         <div class="conditions">
             <div class="conditions__text">
@@ -331,6 +582,7 @@ active
                 <p class="conditions__paid__text">Платно</p>
                 <div class="conditions__stat">
                     <h3 class="conditions__info__title">Статистика за 2023 год</h3>
+                    {% if master_statistics %}
                     {% for statistic in master_statistics %}
                     <ul class="stat__list">
                         <li class="list__item__stat">
@@ -341,6 +593,13 @@ active
                         </li>
                     </ul>
                     {% endfor %}
+                    {% else %}
+                    <ul class="stat__list">
+                        <li class="list__item__stat"><span class="score__item">27</span>Проходной<br>балл</li>
+                        <li class="list__item__stat"><span class="score__item">10</span>Платных<br>мест
+                        </li>
+                    </ul>
+                    {% endif %}
                 </div>
             </div>
             <div class="container2__conditions__image">
@@ -362,9 +621,29 @@ active
         </div>
         <div class="company_carousel_wrap">
             <div class="company_carousel">
+                {% if master_companies %}
                 {% for company in master_companies %}
                 <div class="company_layouts"><img src="{{ company.logo.url }}" alt="{{ company.name }}"></div>
                 {% endfor %}
+                {% else %}
+                <div class="company_layouts"><img src="{% static 'sgn2/img/rostelecom_logo.svg' %}"></div>
+                <div class="company_layouts"><img src="{% static 'sgn2/img/roscosmos-logo.svg' %}"></div>
+                <div class="company_layouts"><img src="{% static 'sgn2/img/rusopros_logo.svg' %}"></div>
+                <div class="company_layouts"><img src="{% static 'sgn2/img/di-logo.svg' %}"></div>
+                <div class="company_layouts"><img src="{% static 'sgn2/img/vciom_logo.svg' %}"></div>
+                <div class="company_layouts"><img src="{% static 'sgn2/img/tsirkon_logo.svg' %}"></div>
+                <div class="company_layouts"><img src="{% static 'sgn2/img/di-logo.svg' %}"></div>
+                <div class="company_layouts"><img src="{% static 'sgn2/img/tsirkon_logo.svg' %}"></div>
+
+                <div class="company_layouts"><img src="{% static 'sgn2/img/rostelecom_logo.svg' %}"></div>
+                <div class="company_layouts"><img src="{% static 'sgn2/img/roscosmos-logo.svg' %}"></div>
+                <div class="company_layouts"><img src="{% static 'sgn2/img/rusopros_logo.svg' %}"></div>
+                <div class="company_layouts"><img src="{% static 'sgn2/img/di-logo.svg' %}"></div>
+                <div class="company_layouts"><img src="{% static 'sgn2/img/vciom_logo.svg' %}"></div>
+                <div class="company_layouts"><img src="{% static 'sgn2/img/tsirkon_logo.svg' %}"></div>
+                <div class="company_layouts"><img src="{% static 'sgn2/img/di-logo.svg' %}"></div>
+                <div class="company_layouts"><img src="{% static 'sgn2/img/tsirkon_logo.svg' %}"></div>
+                {% endif %}
             </div>
         </div>
     </section>
