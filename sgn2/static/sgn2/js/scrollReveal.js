@@ -4,24 +4,42 @@ function isElementInViewport(el, percentVisible) {
     const elementHeight = el.offsetHeight;
     const visibleHeight = (elementHeight * percentVisible) / 100;
 
-    return (rect.top + visibleHeight >= 0 && rect.left >= 0 && rect.bottom - visibleHeight <= windowHeight &&
+    return (
+        rect.top + visibleHeight >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom - visibleHeight <= windowHeight &&
         rect.right <= (window.innerWidth || document.documentElement.clientWidth)
     );
 }
 
-function checkVisibility() {
-    const container = document.querySelector('.company_carousel_wrap');
-    const elements = document.querySelectorAll('.company_layouts');
+function resetAnimation(elements, carousel) {
+    elements.forEach(element => {
+        element.classList.remove('visible');
+        void element.offsetWidth;
+    });
+    carousel.classList.remove('animate');
+    void carousel.offsetWidth;
+}
 
-    if (isElementInViewport(container, 15)) {
+function checkVisibility(containerSelector, elementsSelector, carouselSelector, percentVisible) {
+    const container = document.querySelector(containerSelector);
+    const elements = document.querySelectorAll(elementsSelector);
+    const carousel = document.querySelector(carouselSelector);
+
+    if (isElementInViewport(container, percentVisible)) {
         elements.forEach(element => {
             element.classList.add('visible');
         });
-        document.querySelector('.company_carousel').classList.add('animate');
-        window.removeEventListener('scroll', checkVisibility);
-        window.removeEventListener('load', checkVisibility);
+        carousel.classList.add('animate');
+    } else {
+        resetAnimation(elements, carousel);
     }
 }
 
-window.addEventListener('scroll', checkVisibility);
-window.addEventListener('load', checkVisibility);
+function checkVisibilityHandler() {
+    checkVisibility('#container1 .company_carousel_wrap', '#container1 .company_layouts', '#container1 .company_carousel', 15);
+    checkVisibility('#container2 .company_carousel_wrap', '#container2 .company_layouts', '#container2 .company_carousel', 15);
+}
+
+window.addEventListener('scroll', checkVisibilityHandler);
+window.addEventListener('load', checkVisibilityHandler);
