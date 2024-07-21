@@ -31,7 +31,7 @@ active
     </div>
 </div>
 <div class="container" id="container1" style="display: flex;">
-    <section>
+    <section class="element hidden">
         <div class="main">
             <div class="main__text">
                 <ul class="main__preview">
@@ -59,7 +59,7 @@ active
             </div>
         </div>
     </section>
-    <section class="section__white">
+    <section class="section__white element hidden">
         <div class="wrap__subjects">
             <div class="subjects">
                 <h1 class="title">Что я буду изучать?</h1>
@@ -102,7 +102,7 @@ active
             </div>
         </div>
     </section>
-    <section>
+    <section class="element hidden">
         <div class="program">
             <h1 class="title">Учебный план</h1>
             <div class="program__list">
@@ -294,7 +294,7 @@ active
             </div>
         </div>
     </section>
-    <section class="section__white">
+    <section class="section__white element hidden">
         <div class="conditions">
             <div class="conditions__text">
                 <h1 class="conditions__title">Условия поступления</h1>
@@ -357,7 +357,7 @@ active
         </div>
     </section>
 
-    <section>
+    <section class="element hidden">
         <div class="work">
             <div class="work__info">
                 <h1 class="title">Где я буду работать?</h1>
@@ -370,29 +370,29 @@ active
             </div>
         </div>
         <div class="company_carousel_wrap">
-            <div class="company_carousel">
+            <div class="company_carousel animate">
                 {% if bachelor_companies %}
                 {% for company in bachelor_companies %}
-                <div class="company_layouts hidden"><img src="{{ company.logo.url }}" alt="{{ company.name }}"></div>
+                <div class="company_layouts"><img src="{{ company.logo.url }}" alt="{{ company.name }}"></div>
                 {% endfor %}
                 {% else %}
-                <div class="company_layouts hidden"><img src="{% static 'sgn2/img/rostelecom_logo.svg' %}"></div>
-                <div class="company_layouts hidden"><img src="{% static 'sgn2/img/roscosmos-logo.svg' %}"></div>
-                <div class="company_layouts hidden"><img src="{% static 'sgn2/img/rusopros_logo.svg' %}"></div>
-                <div class="company_layouts hidden"><img src="{% static 'sgn2/img/di-logo.svg' %}"></div>
-                <div class="company_layouts hidden"><img src="{% static 'sgn2/img/vciom_logo.svg' %}"></div>
-                <div class="company_layouts hidden"><img src="{% static 'sgn2/img/tsirkon_logo.svg' %}"></div>
-                <div class="company_layouts hidden"><img src="{% static 'sgn2/img/di-logo.svg' %}"></div>
-                <div class="company_layouts hidden"><img src="{% static 'sgn2/img/tsirkon_logo.svg' %}"></div>
+                <div class="company_layouts "><img src="{% static 'sgn2/img/rostelecom_logo.svg' %}"></div>
+                <div class="company_layouts "><img src="{% static 'sgn2/img/roscosmos-logo.svg' %}"></div>
+                <div class="company_layouts "><img src="{% static 'sgn2/img/rusopros_logo.svg' %}"></div>
+                <div class="company_layouts "><img src="{% static 'sgn2/img/di-logo.svg' %}"></div>
+                <div class="company_layouts "><img src="{% static 'sgn2/img/vciom_logo.svg' %}"></div>
+                <div class="company_layouts "><img src="{% static 'sgn2/img/tsirkon_logo.svg' %}"></div>
+                <div class="company_layouts "><img src="{% static 'sgn2/img/di-logo.svg' %}"></div>
+                <div class="company_layouts "><img src="{% static 'sgn2/img/tsirkon_logo.svg' %}"></div>
 
-                <div class="company_layouts hidden"><img src="{% static 'sgn2/img/rostelecom_logo.svg' %}"></div>
-                <div class="company_layouts hidden"><img src="{% static 'sgn2/img/roscosmos-logo.svg' %}"></div>
-                <div class="company_layouts hidden"><img src="{% static 'sgn2/img/rusopros_logo.svg' %}"></div>
-                <div class="company_layouts hidden"><img src="{% static 'sgn2/img/di-logo.svg' %}"></div>
-                <div class="company_layouts hidden"><img src="{% static 'sgn2/img/vciom_logo.svg' %}"></div>
-                <div class="company_layouts hidden"><img src="{% static 'sgn2/img/tsirkon_logo.svg' %}"></div>
-                <div class="company_layouts hidden"><img src="{% static 'sgn2/img/di-logo.svg' %}"></div>
-                <div class="company_layouts hidden"><img src="{% static 'sgn2/img/tsirkon_logo.svg' %}"></div>
+                <div class="company_layouts "><img src="{% static 'sgn2/img/rostelecom_logo.svg' %}"></div>
+                <div class="company_layouts "><img src="{% static 'sgn2/img/roscosmos-logo.svg' %}"></div>
+                <div class="company_layouts "><img src="{% static 'sgn2/img/rusopros_logo.svg' %}"></div>
+                <div class="company_layouts "><img src="{% static 'sgn2/img/di-logo.svg' %}"></div>
+                <div class="company_layouts "><img src="{% static 'sgn2/img/vciom_logo.svg' %}"></div>
+                <div class="company_layouts "><img src="{% static 'sgn2/img/tsirkon_logo.svg' %}"></div>
+                <div class="company_layouts "><img src="{% static 'sgn2/img/di-logo.svg' %}"></div>
+                <div class="company_layouts "><img src="{% static 'sgn2/img/tsirkon_logo.svg' %}"></div>
                 {% endif %}
             </div>
         </div>
@@ -400,7 +400,7 @@ active
 </div>
 
 <div class="container" id="container2" style="display: none;">
-    <section>
+    <section class="element hidden">
         <div class="main">
             <div class="container2__main__text">
                 <ul class="main__preview">
@@ -428,7 +428,7 @@ active
             </div>
         </div>
     </section>
-    <section class="section__white">
+    <section class="section__white element hidden">
         <div class="wrap__subjects">
             <div class="subjects">
                 <h1 class="title">Что я буду изучать?</h1>
@@ -471,7 +471,7 @@ active
             </div>
         </div>
     </section>
-    <section>
+    <section class="element hidden">
         <div class="program">
             <h1 class="title">Учебный план</h1>
             <div class="program__list">
@@ -575,7 +575,7 @@ active
             </div>
         </div>
     </section>
-    <section class="section__white">
+    <section class="section__white element hidden">
         <div class="conditions">
             <div class="conditions__text">
                 <h1 class="conditions__title">Условия поступления</h1>
@@ -620,29 +620,29 @@ active
             </div>
         </div>
         <div class="company_carousel_wrap">
-            <div class="company_carousel">
+            <div class="company_carousel animate">
                 {% if master_companies %}
                 {% for company in master_companies %}
-                <div class="company_layouts hidden"><img src="{{ company.logo.url }}" alt="{{ company.name }}"></div>
+                <div class="company_layouts "><img src="{{ company.logo.url }}" alt="{{ company.name }}"></div>
                 {% endfor %}
                 {% else %}
-                <div class="company_layouts hidden"><img src="{% static 'sgn2/img/rostelecom_logo.svg' %}"></div>
-                <div class="company_layouts hidden"><img src="{% static 'sgn2/img/roscosmos-logo.svg' %}"></div>
-                <div class="company_layouts hidden"><img src="{% static 'sgn2/img/rusopros_logo.svg' %}"></div>
-                <div class="company_layouts hidden"><img src="{% static 'sgn2/img/di-logo.svg' %}"></div>
-                <div class="company_layouts hidden"><img src="{% static 'sgn2/img/vciom_logo.svg' %}"></div>
-                <div class="company_layouts hidden"><img src="{% static 'sgn2/img/tsirkon_logo.svg' %}"></div>
-                <div class="company_layouts hidden"><img src="{% static 'sgn2/img/di-logo.svg' %}"></div>
-                <div class="company_layouts hidden"><img src="{% static 'sgn2/img/tsirkon_logo.svg' %}"></div>
+                <div class="company_layouts "><img src="{% static 'sgn2/img/rostelecom_logo.svg' %}"></div>
+                <div class="company_layouts "><img src="{% static 'sgn2/img/roscosmos-logo.svg' %}"></div>
+                <div class="company_layouts "><img src="{% static 'sgn2/img/rusopros_logo.svg' %}"></div>
+                <div class="company_layouts "><img src="{% static 'sgn2/img/di-logo.svg' %}"></div>
+                <div class="company_layouts "><img src="{% static 'sgn2/img/vciom_logo.svg' %}"></div>
+                <div class="company_layouts "><img src="{% static 'sgn2/img/tsirkon_logo.svg' %}"></div>
+                <div class="company_layouts "><img src="{% static 'sgn2/img/di-logo.svg' %}"></div>
+                <div class="company_layouts "><img src="{% static 'sgn2/img/tsirkon_logo.svg' %}"></div>
 
-                <div class="company_layouts hidden"><img src="{% static 'sgn2/img/rostelecom_logo.svg' %}"></div>
-                <div class="company_layouts hidden"><img src="{% static 'sgn2/img/roscosmos-logo.svg' %}"></div>
-                <div class="company_layouts hidden"><img src="{% static 'sgn2/img/rusopros_logo.svg' %}"></div>
-                <div class="company_layouts hidden"><img src="{% static 'sgn2/img/di-logo.svg' %}"></div>
-                <div class="company_layouts hidden"><img src="{% static 'sgn2/img/vciom_logo.svg' %}"></div>
-                <div class="company_layouts hidden"><img src="{% static 'sgn2/img/tsirkon_logo.svg' %}"></div>
-                <div class="company_layouts hidden"><img src="{% static 'sgn2/img/di-logo.svg' %}"></div>
-                <div class="company_layouts hidden"><img src="{% static 'sgn2/img/tsirkon_logo.svg' %}"></div>
+                <div class="company_layouts "><img src="{% static 'sgn2/img/rostelecom_logo.svg' %}"></div>
+                <div class="company_layouts "><img src="{% static 'sgn2/img/roscosmos-logo.svg' %}"></div>
+                <div class="company_layouts "><img src="{% static 'sgn2/img/rusopros_logo.svg' %}"></div>
+                <div class="company_layouts "><img src="{% static 'sgn2/img/di-logo.svg' %}"></div>
+                <div class="company_layouts "><img src="{% static 'sgn2/img/vciom_logo.svg' %}"></div>
+                <div class="company_layouts "><img src="{% static 'sgn2/img/tsirkon_logo.svg' %}"></div>
+                <div class="company_layouts "><img src="{% static 'sgn2/img/di-logo.svg' %}"></div>
+                <div class="company_layouts "><img src="{% static 'sgn2/img/tsirkon_logo.svg' %}"></div>
                 {% endif %}
             </div>
         </div>

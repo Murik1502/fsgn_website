@@ -4,7 +4,20 @@
 body {
   background: #F8FAFA;
   color: #303030;
+}
 
+.hidden {
+  opacity: 0;
+  transform: translateY(100px);
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.element {
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
 header {
@@ -573,14 +586,6 @@ li.list__item__scores:last-child {
     width: 200px;
     height: 150px;
     border-radius: 18px;
-    opacity: 0;
-    transform: translateY(10px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-.company_layouts.visible {
-    opacity: 1;
-    transform: translateY(0);
 }
 
 .company_carousel {
