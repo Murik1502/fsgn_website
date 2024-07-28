@@ -3,7 +3,9 @@
 from django.shortcuts import render
 from django.views import View
 from .vk_parser import get_posts
-from .models import Teacher, Advantage, BachelorPlan, MasterPlan, BachelorCompany, MasterCompany, BachelorStatistics, MasterStatistics
+from .models import Teacher, Advantage, BachelorPlan, MasterPlan, BachelorCompany, MasterCompany, BachelorStatistics, \
+    MasterStatistics
+
 
 class About(View):
     def get(self, request):
@@ -15,6 +17,7 @@ class About(View):
             'teachers': teachers,
             'advantages': advantages,
         })
+
 
 class Applicant(View):
     def get(self, request):
@@ -59,7 +62,8 @@ class Applicant(View):
             'master_statistics': master_statistics,
         })
 
+
 class History(View):
     def get(self, request):
         data = get_posts()
-        return render(request, 'sgn2/about.html', context={'info': data})
+        return render(request, 'sgn2/history.html', context={'info': data})
