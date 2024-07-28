@@ -24,7 +24,6 @@ body {
     font-family: 'ALS Sector', sans-serif;
     -webkit-font-smoothing: antialiased;
     margin: 0;
-    background-color: var(--light-bg);
     overflow-x: hidden;
 
     color: var(--black);

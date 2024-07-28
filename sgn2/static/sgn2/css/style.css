@@ -2,7 +2,7 @@
 @import url(https://db.onlinewebfonts.com/c/595030bb520f1e2ab2fb4e8d7c5f30a5?family=ALS+Sector+Regular+Regular);
 
 body {
-  background: #F8FAFA;
+  background-color: var(--light-bg);
   color: #303030;
 }
 
@@ -100,7 +100,7 @@ section {
 }
 
 .header__dropdown .-hover::after {
-  content: url(../img/arrow.svg);
+  content: url(../../../static/sgn2/img/arrow.svg);
   display: inline-block;
   width: 5px;
   height: 11px;
@@ -110,7 +110,7 @@ section {
 }
 
 .header__dropdown:hover .-hover::after {
-  content: url(../img/arrow-flipped.svg);
+  content: url(../../../static/sgn2/img/arrow-flipped.svg);
   display: inline-block;
   width: 5px;
   height: 11px;
@@ -389,7 +389,7 @@ section {
 }
 
 .collapsible:after {
-  content: url(../img/arrow-flipped-gray.svg);
+  content: url(../../../static/sgn2/img/arrow-flipped-gray.svg);
   color: #CCCCCC;
   font-weight: bold;
   float: right;
@@ -397,7 +397,7 @@ section {
 }
 
 .plan:after {
-  content: url(../img/arrow-gray.svg);
+  content: url(../../../static/sgn2/img/arrow-gray.svg);
 }
 
 .content {

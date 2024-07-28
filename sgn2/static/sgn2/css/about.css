@@ -1,5 +1,7 @@
 
-
+body {
+        background-color: var(--light-bg);
+}
 
 .grid-12 {
     display: grid;
