@@ -66,16 +66,6 @@ section {
   position: absolute;
 }
 
-.header__list {
-  display: flex;
-  list-style-type: none;
-  gap: 74px;
-  align-self: center;
-  text-align: center;
-
-  height: 21px;
-  padding-left: 0;
-}
 
 .header__link {
   color: #303030;
@@ -201,7 +191,6 @@ section {
 
 .main__img {
   width: 100%;
-  height: 100%;
 }
 
 .main__text {
@@ -310,7 +299,7 @@ section {
   padding-top: 32px;
   margin-bottom: 16px;
   margin-top: 0;
-  font-size: 28px;
+  font-size: 1.75rem;
   height: 30px;
 }
 
@@ -318,7 +307,7 @@ section {
   padding-top: 32px;
   margin-bottom: 16px;
   margin-top: 0;
-  font-size: 28px;
+  font-size: 1.75rem;
   height: 30px;
 }
 
@@ -326,7 +315,7 @@ section {
   padding-top: 32px;
   margin-bottom: 16px;
   margin-top: 0;
-  font-size: 28px;
+  font-size: 1.75rem;
   height: 30px;
 }
 
@@ -377,7 +366,7 @@ section {
   border: none;
   text-align: left;
   outline: none;
-  font-size: 24px;
+  font-size: 1.5rem;
   line-height: 1.3;
   padding: 0;
   margin-bottom: 18px;
@@ -415,7 +404,7 @@ section {
 }
 
 .content__par {
-  font-size: 20px;
+  font-size: 1.25rem;
   line-height: 1.3;
   margin: 0;
   margin-bottom: 6px;
@@ -480,7 +469,7 @@ section {
 }
 
 .list__item__stat {
-  font-size: 20px;
+  font-size: 1.25rem;
 }
 
 li.list__item__stat:nth-child(2) {
@@ -510,7 +499,7 @@ li.list__item__stat:last-child {
 }
 
 .list__item__scores {
-  font-size: 20px;
+  font-size: 1.25rem;
 }
 
 li.list__item__scores:nth-child(2) {
@@ -526,13 +515,16 @@ li.list__item__scores:last-child {
 }
 
 .conditions__image {
-
+  display: flex;
+  align-items: center;
   max-width: 600px;
   max-height: 600px;
   flex-basis: calc(100% - 547px - 60px);
 }
 
 .container2__conditions__image {
+  display: flex;
+  align-items: center;
   max-width: 500px;
   max-height: 300px;
   flex-basis: calc(100% - 509px - 20px);
@@ -540,7 +532,6 @@ li.list__item__scores:last-child {
 
 .conditions__img {
   width: 100%;
-  height: 100%;
 }
 
 .work {
@@ -633,16 +624,15 @@ li.list__item__scores:last-child {
   .main__desc {
     width: 571px;
   }
+
+  li.list__item__scores:nth-child(2) {
+    margin-left: 60px;
+  }
 }
 
-@media(max-width: 1150px) {
-  .header__list {
-    gap: 30px;
-  }
-
-  .card__header__tech,
+@media(max-width: 1063px) {
   .card__header__hum {
-    margin-bottom: 50px;
+    margin-bottom: 40px;
   }
 
   .conditions__image {
@@ -650,7 +640,7 @@ li.list__item__scores:last-child {
   }
 }
 
-@media(max-width: 965px) {
+@media(max-width: 988px) {
   .card {
     flex-direction: column;
   }
