@@ -1,21 +1,30 @@
 @import url(https://db.onlinewebfonts.com/c/55c75572ae1d9f96d61851294e1698ec?family=ALS+Sector+Bold+Bold);
 @import url(https://db.onlinewebfonts.com/c/595030bb520f1e2ab2fb4e8d7c5f30a5?family=ALS+Sector+Regular+Regular);
 
-html {
-  font-size: 62.5%;
+body {
+  background-color: var(--light-bg);
+  color: #303030;
 }
 
-body {
-  background: #F8FAFA;
-  color: #303030;
-  font-family: "ALS Sector Regular Regular";
+.hidden {
+  opacity: 0;
+  transform: translateY(100px);
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.element {
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
 header {
   color: #303030;
   background: #fff;
   font-family: "ALS Sector Bold Bold";
-  font-size: 2rem;
+  font-size: 1.25rem;
   box-shadow: 0 8px 16px rgb(238, 241, 243);
 }
 
@@ -57,16 +66,6 @@ section {
   position: absolute;
 }
 
-.header__list {
-  display: flex;
-  list-style-type: none;
-  gap: 74px;
-  align-self: center;
-  text-align: center;
-
-  height: 21px;
-  padding-left: 0;
-}
 
 .header__link {
   color: #303030;
@@ -91,7 +90,7 @@ section {
 }
 
 .header__dropdown .-hover::after {
-  content: url(../img/arrow.svg);
+  content: url(../../../static/sgn2/img/arrow.svg);
   display: inline-block;
   width: 5px;
   height: 11px;
@@ -101,7 +100,7 @@ section {
 }
 
 .header__dropdown:hover .-hover::after {
-  content: url(../img/arrow-flipped.svg);
+  content: url(../../../static/sgn2/img/arrow-flipped.svg);
   display: inline-block;
   width: 5px;
   height: 11px;
@@ -144,7 +143,7 @@ section {
 
 .text__nav {
   width: 250px;
-  font-size: 1.6rem;
+  font-size: 1rem;
   color: rgba(0, 0, 0, 0.5);
 }
 
@@ -192,7 +191,6 @@ section {
 
 .main__img {
   width: 100%;
-  height: 100%;
 }
 
 .main__text {
@@ -209,7 +207,7 @@ section {
   font-family: "ALS Sector Bold Bold";
   margin-top: 14px;
   margin-bottom: 0;
-  font-size: 5rem;
+  font-size: 3.125rem;
   line-height: 1;
 }
 
@@ -217,7 +215,7 @@ section {
   max-width: 678px;
   height: 130px;
   margin-top: 26px;
-  font-size: 2rem;
+  font-size: 1.25rem;
   line-height: 1.3;
 }
 
@@ -274,7 +272,7 @@ section {
 }
 
 .title {
-  font-size: 4.8rem;
+  font-size: 3rem;
   margin: 0;
 }
 
@@ -301,7 +299,7 @@ section {
   padding-top: 32px;
   margin-bottom: 16px;
   margin-top: 0;
-  font-size: 28px;
+  font-size: 1.75rem;
   height: 30px;
 }
 
@@ -309,7 +307,7 @@ section {
   padding-top: 32px;
   margin-bottom: 16px;
   margin-top: 0;
-  font-size: 28px;
+  font-size: 1.75rem;
   height: 30px;
 }
 
@@ -317,7 +315,7 @@ section {
   padding-top: 32px;
   margin-bottom: 16px;
   margin-top: 0;
-  font-size: 28px;
+  font-size: 1.75rem;
   height: 30px;
 }
 
@@ -330,17 +328,17 @@ section {
 }
 
 .card__list__soc {
-  font-size: 2rem;
+  font-size: 1.25em;
   margin-bottom: 10px;
 }
 
 .card__list__tech {
-  font-size: 2rem;
+  font-size: 1.25rem;
   margin-bottom: 14px;
 }
 
 .card__list__hum {
-  font-size: 2rem;
+  font-size: 1.25rem;
   margin-bottom: 8px;
 }
 
@@ -353,7 +351,7 @@ section {
   min-width: 80px;
 }
 
-.programm {
+.program {
   margin-right: 80px;
   margin-bottom: 59px;
   margin-left: 80px;
@@ -368,10 +366,10 @@ section {
   border: none;
   text-align: left;
   outline: none;
-  font-size: 24px;
+  font-size: 1.5rem;
   line-height: 1.3;
   padding: 0;
-  margin-bottom: 22px;
+  margin-bottom: 18px;
 }
 
 .plan,
@@ -380,16 +378,15 @@ section {
 }
 
 .collapsible:after {
-  content: url(../img/arrow-flipped-gray.svg);
+  content: url(../../../static/sgn2/img/arrow-flipped-gray.svg);
   color: #CCCCCC;
   font-weight: bold;
   float: right;
   margin-left: 5px;
-
 }
 
 .plan:after {
-  content: url(../img/arrow-gray.svg);
+  content: url(../../../static/sgn2/img/arrow-gray.svg);
 }
 
 .content {
@@ -402,20 +399,18 @@ section {
 
 .content__list {
   padding: 0;
+  margin: 0;
   list-style-type: none;
 }
 
 .content__par {
-  font-size: 20px;
+  font-size: 1.25rem;
   line-height: 1.3;
   margin: 0;
   margin-bottom: 6px;
 }
 
-.content__par__last {
-  font-size: 20px;
-  line-height: 1.3;
-  margin: 0;
+.content__par:last-child {
   margin-bottom: 22px;
 }
 
@@ -423,18 +418,13 @@ section {
   border-color: #cccccc45;
   margin-top: 0;
   margin-bottom: 20px;
-
 }
 
-.programm__list {
-  gap: 66px;
-  margin-top: 32px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.programm__list__item {
-  flex-basis: 48%;
+.program__list {
+    margin-top: 32px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 66px;
 }
 
 .conditions {
@@ -449,8 +439,8 @@ section {
 
 .conditions__title {
   margin-top: 0;
-  font-size: 4.8rem;
-  margin-bottom: 15px;
+  font-size: 3rem;
+  margin-bottom: 25px;
 }
 
 .conditions__paid__text {
@@ -460,7 +450,7 @@ section {
   color: white;
   font-size: 20px;
   border-radius: 54px;
-  padding: 14px 21px 12px 21px;
+  padding: 12px 21px 12px 21px;
 }
 
 .conditions__stat {
@@ -479,7 +469,7 @@ section {
 }
 
 .list__item__stat {
-  font-size: 20px;
+  font-size: 1.25rem;
 }
 
 li.list__item__stat:nth-child(2) {
@@ -509,7 +499,7 @@ li.list__item__stat:last-child {
 }
 
 .list__item__scores {
-  font-size: 20px;
+  font-size: 1.25rem;
 }
 
 li.list__item__scores:nth-child(2) {
@@ -525,13 +515,16 @@ li.list__item__scores:last-child {
 }
 
 .conditions__image {
-
+  display: flex;
+  align-items: center;
   max-width: 600px;
   max-height: 600px;
   flex-basis: calc(100% - 547px - 60px);
 }
 
 .container2__conditions__image {
+  display: flex;
+  align-items: center;
   max-width: 500px;
   max-height: 300px;
   flex-basis: calc(100% - 509px - 20px);
@@ -539,7 +532,6 @@ li.list__item__scores:last-child {
 
 .conditions__img {
   width: 100%;
-  height: 100%;
 }
 
 .work {
@@ -558,13 +550,13 @@ li.list__item__scores:last-child {
 
 .work__text {
   color: #000;
-  font-size: 2rem;
+  font-size: 1.25rem;
   margin-top: 32px;
   margin-bottom: 56px;
 }
 
 .work_company {
-  font-size: 2.8rem;
+  font-size: 1.75rem;
   margin-top: 0;
   margin-bottom: 24px;
 }
@@ -572,51 +564,53 @@ li.list__item__scores:last-child {
 .company_carousel_wrap {
   width: 100%;
   display: flex;
-  flex-wrap: nowrap;  
+  flex-wrap: nowrap;
   overflow: hidden;
   margin-bottom: 70px;
 }
 
+.company_layouts {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFF;
+    width: 200px;
+    height: 150px;
+    border-radius: 18px;
+}
+
 .company_carousel {
-  padding-left: 21px;
-  flex-wrap: nowrap;
-  display: flex;
-  justify-content: space-between;
-  gap: 21px;
-  animation: animate 25s linear infinite;
+    padding-left: 21px;
+    flex-wrap: nowrap;
+    display: flex;
+    justify-content: space-between;
+    gap: 21px;
+}
+
+.company_carousel.animate {
+    animation: animate 25s linear infinite;
 }
 
 @keyframes animate {
-  0% {
-      transform: translate3d(0, 0, 0);
-  }
-  100% {  
-      transform: translate3d(-50%, 0, 0);
-  }
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(-50%, 0, 0);
+    }
 }
 @-webkit-keyframes animate {
-  0% {
-      transform: translate3d(0, 0, 0);
-  }
-  100% {
-      transform: translate3d(-50%, 0, 0);
-  }
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(-50%, 0, 0);
+    }
 }
-
-.company_layouts {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #FFF;
-  width: 200px;
-  height: 150px;
-  border-radius: 18px;
-}
-
 
 @media(max-width: 1230px) {
   html {
-    font-size: 55%;
+    font-size: 88%;
   }
   .main__image {
     min-width: 26vw;
@@ -624,22 +618,21 @@ li.list__item__scores:last-child {
 
   .main__title {
     width: 571px;
-    font-size: 4.8em;
+    font-size: 3em;
   }
 
   .main__desc {
     width: 571px;
   }
+
+  li.list__item__scores:nth-child(2) {
+    margin-left: 60px;
+  }
 }
 
-@media(max-width: 1150px) {
-  .header__list {
-    gap: 30px;
-  }
-
-  .card__header__tech,
+@media(max-width: 1063px) {
   .card__header__hum {
-    margin-bottom: 50px;
+    margin-bottom: 40px;
   }
 
   .conditions__image {
@@ -647,11 +640,7 @@ li.list__item__scores:last-child {
   }
 }
 
-@media(max-width: 965px) {
-  html {
-    font-size: 55%;
-  }
-
+@media(max-width: 988px) {
   .card {
     flex-direction: column;
   }
@@ -668,7 +657,7 @@ li.list__item__scores:last-child {
   .card__list__hum,
   .card__list__soc,
   .card__list__tech {
-    font-size: 2.5rem;
+    font-size: 1.5625rem;
   }
 
   .header__dropdown .-hover::after {

@@ -10,76 +10,104 @@
 </head>
 
 <body>
-    {% if messages %}
-        {% for message in messages %}
-            <div class="alert alert-{{ message.tags }}">{{ message }}</div>
-        {% endfor %}
-    {% endif %}
-    <div class="toolbar">
-        <div class="toolbar-container">
-            <a href="#"><img src="{% static 'sgn2/img/logo.svg' %}" class="logo" alt=""></a>
-            <div class="nav-container">
-                <a
-                        class={% block applicant_tab %}inactive{% endblock %}
-                        href="{% url 'applicant-sgn2' %}">Абитуриенту
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-{{ message.tags }}">{{ message }}</div>
+{% endfor %}
+{% endif %}
+<div class="toolbar">
+    <div class="toolbar-container">
+        <a href="#"><img src="{% static 'sgn2/img/logo.svg' %}" class="logo" alt=""></a>
+        <div class="nav-container">
+            <a
+                    class={% block applicant_tab %}inactive{% endblock %}
+                    href="{% url 'applicant-sgn2' %}">Абитуриенту
 
-                </a>
-                <a
-                        class={% block about_tab %}inactive{% endblock %}
-                        href="{% url 'about-sgn2' %}">О кафедре
-                </a>
-                <a
-                        class={% block history_tab %}inactive{% endblock %}
-                        href="{% url 'history-sgn2' %}">История кафедры
-                </a>
-            </div>
-            <div class="dropdown">
-                <div class="cathedra">
-                    СГН2
-                    <img src="{% static 'sgn2/img/arrive.svg' %}" alt="" class="arrow-list">
-                </div>
-                <div class="dropdown-content">
-                    <a href="#">ФСГН</a>
-                    <a href="#">СГН1</a>
-                    <a href="#">СГН3</a>
-                    <a href="#">СГН4</a>
-                </div>
-            </div>
+            </a>
+            <a
+                    class={% block about_tab %}inactive{% endblock %}
+                    href="{% url 'about-sgn2' %}">О кафедре
+            </a>
+            <a
+                    class={% block history_tab %}inactive{% endblock %}
+                    href="{% url 'history-sgn2' %}">История кафедры
+            </a>
         </div>
     </div>
-    <div class="toolbar-placeholder"></div>
-
-    {% block content %}
-    {% endblock %}
-
-    <footer>
-        <div class="flex-row" style="justify-content: space-between;">
-            <div class="flex-col">
-                <h3>СГН2</h3>
-                <p>Социология</p>
-                <p>и культурология</p>
-            </div>
-            <div class="flex-col">
-                <h3>Контакты</h3>
-                <p>8 (499) 263-63-98</p>
-                <p>sgn2@bmstu.ru</p>
-            </div>
-            <div class="flex-col">
-                <h3>Адрес</h3>
-                <p>Москва, Рубцовская наб.,</p>
-                <p>д. 2/18, этаж 7, ауд. 701л</p>
-            </div>
-            <div class="flex-col">
-                <h3>Ссылки</h3>
-                <a href="https://vk.com/sociology.bmstu">ВКонтакте</a>
-                <a href="https://t.me/soc_tech_bmstu">Telegram</a>
-            </div>
+    <div class="dropdown" onmouseover="openNav()" onmouseout="closeNav()">
+        <div class="cathedra">
+            СГН2
+            <img src="{% static 'sgn2/img/arrive.svg' %}" alt="" class="arrow-list">
         </div>
-        <div class="line-horizontal mt25"></div>
-        <div class="flex-row mt25" style="justify-content: space-between;">
-            <h4>© 2024 МГТУ им. Н.Э. Баумана</h4>
-            <h4>Designed by СГН</h4>
+        <div id="mySidenav" class="dropdown-content">
+            <a
+                    class={% block fsgn_tab %}inactive{% endblock %}
+                    href="{% url 'fsgn-main' %}">ФСГН
+            </a>
+            <a
+                    class={% block sgn1_tab %}inactive{% endblock %}
+                    href="{% url 'applicant-sgn1' %}">СГН1
+            </a>
+            <a
+                    class={% block sgn3_tab %}inactive{% endblock %}
+                    href="{% url 'applicant-sgn3' %}">СГН3
+            </a>
+            <a
+                    class={% block sgn4_tab %}inactive{% endblock %}
+                    href="{% url 'applicant-sgn4' %}">СГН4
+            </a>
         </div>
-    </footer>
+    </div>
+</div>
+<div class="toolbar-placeholder"></div>
+
+
+{% block content %}
+{% endblock %}
+
+<footer>
+    <div class="flex-row" style="justify-content: space-between;">
+        <div class="flex-col">
+            <h3>СГН2</h3>
+            <p>Социология</p>
+            <p>и культурология</p>
+        </div>
+        <div class="flex-col">
+            <h3>Контакты</h3>
+            <p>8 (499) 263-63-98</p>
+            <p>sgn2@bmstu.ru</p>
+        </div>
+        <div class="flex-col">
+            <h3>Адрес</h3>
+            <p>Москва, Рубцовская наб.,</p>
+            <p>д. 2/18, этаж 7, ауд. 701л</p>
+        </div>
+        <div class="flex-col">
+            <h3>Ссылки</h3>
+            <a href="https://vk.com/sociology.bmstu">ВКонтакте</a>
+            <a href="https://t.me/soc_tech_bmstu">Telegram</a>
+        </div>
+    </div>
+    <div class="line-horizontal mt25"></div>
+    <div class="flex-row mt25" style="justify-content: space-between;">
+        <h4>© 2024 МГТУ им. Н.Э. Баумана</h4>
+        <h4>Designed by СГН</h4>
+    </div>
+</footer>
 </body>
 </html>
+
+<script>
+    function openNav() {
+        const sidenav = document.getElementById("mySidenav");
+        sidenav.style.transform = 'translateX(0)';
+        sidenav.style.opacity = '1';
+    }
+
+    function closeNav() {
+        const sidenav = document.getElementById("mySidenav");
+        sidenav.style.transform = 'translateX(100%)';
+        sidenav.style.opacity = '0';
+    }
+
+</script>

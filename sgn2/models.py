@@ -1,11 +1,15 @@
 import os
 from django.db import models
-from django.contrib.auth.models import User, Group
-from django.db.models import ForeignKey
+from django.db import transaction
 
 
 def get_upload_path(instance, filename):
-    return os.path.join('photos/teachers', "%s" % instance.name, filename)
+    if isinstance(instance, Teacher):
+        return os.path.join('photos/teachers', "%s" % instance.name, filename)
+    elif isinstance(instance, BachelorCompany):
+        return os.path.join('companies/bachelor', "%s" % instance.name, filename)
+    elif isinstance(instance, MasterCompany):
+        return os.path.join('companies/master', "%s" % instance.name, filename)
 
 
 class Teacher(models.Model):
@@ -15,7 +19,7 @@ class Teacher(models.Model):
     photo = models.ImageField('Фото', upload_to=get_upload_path, blank=True)
 
     def __str__(self):
-        return f"{self.name})"
+        return f"{self.name}"
 
     class Meta:
         verbose_name_plural = "преподаватели"
@@ -33,21 +37,60 @@ class Advantage(models.Model):
         verbose_name = "преимущество"
 
 
-class Company(models.Model):
+class BachelorCompany(models.Model):
     name = models.CharField('Название', max_length=64, null=False)
-    logo = models.ImageField('Логотип', upload_to=get_upload_path, blank=False)
+    logo = models.FileField('Логотип', upload_to=get_upload_path, blank=False)
 
     def __str__(self):
         return self.name
 
     class Meta:
-        verbose_name_plural = "компании"
-        verbose_name = "компания"
+        verbose_name_plural = "компании (бакалавриат)"
+        verbose_name = "компания (бакалавриат)"
+
+class MasterCompany(models.Model):
+    name = models.CharField('Название', max_length=64, null=False)
+    logo = models.FileField('Логотип', upload_to=get_upload_path, blank=False)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name_plural = "компании (магистратура)"
+        verbose_name = "компания (магистратура)"
+
+class BachelorPlan(models.Model):
+    number = models.IntegerField('Номер семестра', unique=True)
+
+    def __str__(self):
+        return f"Семестр {self.number}"
+
+    class Meta:
+        verbose_name_plural = "Учебный план (бакалавриат)"
+        verbose_name = "Учебный план (бакалавриат)"
 
 
-class Discipline(models.Model):
+class MasterPlan(models.Model):
+    number = models.IntegerField('Номер семестра', unique=True)
+
+    def __str__(self):
+        return f"Семестр {self.number}"
+
+    class Meta:
+        verbose_name_plural = "Учебный план (магистратура)"
+        verbose_name = "Учебный план (магистратура)"
+
+
+class BachelorDiscipline(models.Model):
     name = models.CharField('Название', max_length=64)
-    semester = models.ForeignKey('Plan', on_delete=models.CASCADE)
+    bachelor_semester = models.ForeignKey(BachelorPlan, on_delete=models.SET_NULL, null=True, blank=True,
+                                          related_name='disciplines')
+
+
+class MasterDiscipline(models.Model):
+    name = models.CharField('Название', max_length=64)
+    master_semester = models.ForeignKey(MasterPlan, on_delete=models.SET_NULL, null=True, blank=True,
+                                        related_name='disciplines')
 
     def __str__(self):
         return self.name
@@ -57,13 +100,29 @@ class Discipline(models.Model):
         verbose_name = "дисциплина"
 
 
-class Plan(models.Model):
-    number = models.IntegerField('Номер семестра', unique=True)
+class BachelorStatistics(models.Model):
+    passing_score = models.IntegerField('Проходной балл', null=True)
+    average_score = models.IntegerField('Средний проходной балл', null=True)
+    budget_places = models.IntegerField('Бюджетные места', null=True)
+    subject1_min_score = models.IntegerField('Минимальный балл по математике', null=True)
+    subject2_min_score = models.IntegerField('Минимальный балл по информатике/истории/математике', null=True)
+    subject3_min_score = models.IntegerField('Минимальный балл по русскому языку', null=True)
 
     def __str__(self):
-        return f"Семестр {self.number}"
+        return f"Условия поступления (бакалавриат)"
 
     class Meta:
-        verbose_name_plural = "семестры"
-        verbose_name = "семестр"
+        verbose_name_plural = "условия поступления (бакалавриат)"
+        verbose_name = "условия поступления (бакалавриат)"
 
+
+class MasterStatistics(models.Model):
+    passing_score = models.IntegerField('Проходной балл', null=True)
+    budget_places = models.IntegerField('Бюджетные места', null=True)
+
+    def __str__(self):
+        return f"Условия поступления (магистратура)"
+
+    class Meta:
+        verbose_name_plural = "условия поступления (магистратура)"
+        verbose_name = "условия поступления (магистратура)"

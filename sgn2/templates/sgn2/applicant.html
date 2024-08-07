@@ -2,13 +2,13 @@
 {% load static %}
 
 {% block title %}
-    Абитуриенту | СГН2
+Абитуриенту | СГН2
 {% endblock %}
 
 {% block css %}
 <link rel="stylesheet" href="{% static 'sgn2/css/style.css' %}">
 <link rel="stylesheet" href="{% static 'sgn2/css/button.css' %}">
-<link rel="stylesheet" href="{% static 'sgn2/css/normalize.css' %}">
+<link rel="stylesheet" href="{% static 'sgn2/css/normalize.min.css' %}">
 {% endblock %}
 
 {% block applicant_tab %}
@@ -31,7 +31,7 @@ active
     </div>
 </div>
 <div class="container" id="container1" style="display: flex;">
-    <section>
+    <section class="element hidden">
         <div class="main">
             <div class="main__text">
                 <ul class="main__preview">
@@ -55,11 +55,11 @@ active
                 </ul>
             </div>
             <div class="main__image">
-                <img class="main__img" src="{% static 'sgn2/img/concept-of-media.svg' %}">
+                <img class="main__img" src="{% static 'sgn2/img/concept-of-media.png' %}">
             </div>
         </div>
     </section>
-    <section class="section__white">
+    <section class="section__white element hidden">
         <div class="wrap__subjects">
             <div class="subjects">
                 <h1 class="title">Что я буду изучать?</h1>
@@ -102,173 +102,512 @@ active
             </div>
         </div>
     </section>
-    <section>
-        <div class="programm">
+    <section class="element hidden">
+        <div class="program">
             <h1 class="title">Учебный план</h1>
-            <div class="programm__list">
-                <div class="programm__list__item">
-                    <button class="collapsible">1 семестр</button>
-                    <div class="content">
-                        <ul class="content__list">
-                            <li class="content__par">• Высшая математика</li>
-                            <li class="content__par">• Иностранный язык 1</li>
-                            <li class="content__par">• Информатика и программирование</li>
-                            <li class="content__par">• История России</li>
-                            <li class="content__par">• Культурология техносферы</li>
-                            <li class="content__par">• Основы права</li>
-                            <li class="content__par">• Основы социологии (введение в специльность)</li>
-                            <li class="content__par">• Психология</li>
-                            <li class="content__par">• Экономика</li>
-                            <li class="content__par__last">• Физическая культура и спорт</li>
-                        </ul>
+            <div class="program__list">
+                {% if bachelor_semesters %}
+                <div class="program_list">
+                    {% for semester in bachelor_semesters %}
+                    {% if forloop.counter0|divisibleby:2 %}
+                    <div>
+                        <button class="collapsible">{{ semester.number }} семестр</button>
+                        <div class="content">
+                            <ul class="content__list">
+                                {% for discipline in semester.disciplines.all %}
+                                <li class="content__par">• {{ discipline.name }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <hr class="content__hr">
                     </div>
-                    <hr class="content__hr">
-                    <button class="collapsible">2 семестр</button>
-                    <div class="content">
-                        <ul class="content__list">
-                            <li class="content__par">• Высшая математика</li>
-                            <li class="content__par">• Иностранный язык 1</li>
-                            <li class="content__par">• Информатика и программирование</li>
-                            <li class="content__par">• История России</li>
-                            <li class="content__par">• Культурология техносферы</li>
-                            <li class="content__par">• Основы права</li>
-                            <li class="content__par">• Основы социологии (введение в специльность)</li>
-                            <li class="content__par">• Психология</li>
-                            <li class="content__par">• Экономика</li>
-                            <li class="content__par__last">• Физическая культура и спорт</li>
-                        </ul>
-                    </div>
-                    <hr class="content__hr">
-                    <button class="collapsible">3 семестр</button>
-                    <div class="content">
-                        <ul class="content__list">
-                            <li class="content__par">• Высшая математика</li>
-                            <li class="content__par">• Иностранный язык 1</li>
-                            <li class="content__par">• Информатика и программирование</li>
-                            <li class="content__par">• История России</li>
-                            <li class="content__par">• Культурология техносферы</li>
-                            <li class="content__par">• Основы права</li>
-                            <li class="content__par">• Основы социологии (введение в специльность)</li>
-                            <li class="content__par">• Психология</li>
-                            <li class="content__par">• Экономика</li>
-                            <li class="content__par__last">• Физическая культура и спорт</li>
-                        </ul>
-                    </div>
-                    <hr class="content__hr">
-                    <button class="collapsible">4 семестр</button>
-                    <div class="content">
-                        <ul class="content__list">
-                            <li class="content__par">• Высшая математика</li>
-                            <li class="content__par">• Иностранный язык 1</li>
-                            <li class="content__par">• Информатика и программирование</li>
-                            <li class="content__par">• История России</li>
-                            <li class="content__par">• Культурология техносферы</li>
-                            <li class="content__par">• Основы права</li>
-                            <li class="content__par">• Основы социологии (введение в специльность)</li>
-                            <li class="content__par">• Психология</li>
-                            <li class="content__par">• Экономика</li>
-                            <li class="content__par__last">• Физическая культура и спорт</li>
-                        </ul>
-                    </div>
-                    <hr class="content__hr">
+                    {% endif %}
+                    {% endfor %}
                 </div>
-                <div class="programm__list__item">
-                    <button class="collapsible">5 семестр</button>
-                    <div class="content">
-                        <ul class="content__list">
-                            <li class="content__par">• Высшая математика</li>
-                            <li class="content__par">• Иностранный язык 1</li>
-                            <li class="content__par">• Информатика и программирование</li>
-                            <li class="content__par">• История России</li>
-                            <li class="content__par">• Культурология техносферы</li>
-                            <li class="content__par">• Основы права</li>
-                            <li class="content__par">• Основы социологии (введение в специльность)</li>
-                            <li class="content__par">• Психология</li>
-                            <li class="content__par">• Экономика</li>
-                            <li class="content__par__last">• Физическая культура и спорт</li>
-                        </ul>
+                <div class="program_list">
+                    {% for semester in bachelor_semesters %}
+                    {% if not forloop.counter0|divisibleby:2 %}
+                    <div>
+                        <button class="collapsible">{{ semester.number }} семестр</button>
+                        <div class="content">
+                            <ul class="content__list">
+                                {% for discipline in semester.disciplines.all %}
+                                <li class="content__par">• {{ discipline.name }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <hr class="content__hr">
                     </div>
-                    <hr class="content__hr">
-                    <button class="collapsible">6 семестр</button>
-                    <div class="content">
-                        <ul class="content__list">
-                            <li class="content__par">• Высшая математика</li>
-                            <li class="content__par">• Иностранный язык 1</li>
-                            <li class="content__par">• Информатика и программирование</li>
-                            <li class="content__par">• История России</li>
-                            <li class="content__par">• Культурология техносферы</li>
-                            <li class="content__par">• Основы права</li>
-                            <li class="content__par">• Основы социологии (введение в специльность)</li>
-                            <li class="content__par">• Психология</li>
-                            <li class="content__par">• Экономика</li>
-                            <li class="content__par__last">• Физическая культура и спорт</li>
-                        </ul>
-                    </div>
-                    <hr class="content__hr">
-                    <button class="collapsible">7 семестр</button>
-                    <div class="content">
-                        <ul class="content__list">
-                            <li class="content__par">• Высшая математика</li>
-                            <li class="content__par">• Иностранный язык 1</li>
-                            <li class="content__par">• Информатика и программирование</li>
-                            <li class="content__par">• История России</li>
-                            <li class="content__par">• Культурология техносферы</li>
-                            <li class="content__par">• Основы права</li>
-                            <li class="content__par">• Основы социологии (введение в специльность)</li>
-                            <li class="content__par">• Психология</li>
-                            <li class="content__par">• Экономика</li>
-                            <li class="content__par__last">• Физическая культура и спорт</li>
-                        </ul>
-                    </div>
-                    <hr class="content__hr">
-                    <button class="collapsible">8 семестр</button>
-                    <div class="content">
-                        <ul class="content__list">
-                            <li class="content__par">• Высшая математика</li>
-                            <li class="content__par">• Иностранный язык 1</li>
-                            <li class="content__par">• Информатика и программирование</li>
-                            <li class="content__par">• История России</li>
-                            <li class="content__par">• Культурология техносферы</li>
-                            <li class="content__par">• Основы права</li>
-                            <li class="content__par">• Основы социологии (введение в специльность)</li>
-                            <li class="content__par">• Психология</li>
-                            <li class="content__par">• Экономика</li>
-                            <li class="content__par__last">• Физическая культура и спорт</li>
-                        </ul>
-                    </div>
-                    <hr class="content__hr">
+                    {% endif %}
+                    {% endfor %}
                 </div>
+                {% else %}
+                <div class="program_list">
+                    <div>
+                        <button class="collapsible">1 семестр</button>
+                        <div class="content">
+                            <ul class="content__list">
+                                <li class="content__par">• Высшая математика</li>
+                                <li class="content__par">• Иностранный язык 1</li>
+                                <li class="content__par">• Информатика и программирование</li>
+                                <li class="content__par">• История России</li>
+                                <li class="content__par">• Культурология техносферы</li>
+                                <li class="content__par">• Основы права</li>
+                                <li class="content__par">• Основы социологии (введение в специльность)</li>
+                                <li class="content__par">• Психология</li>
+                                <li class="content__par">• Экономика</li>
+                                <li class="content__par">• Физическая культура и спорт</li>
+                            </ul>
+                        </div>
+                        <hr class="content__hr">
+                    </div>
+                    <div>
+                        <button class="collapsible">2 семестр</button>
+                        <div class="content">
+                            <ul class="content__list">
+                                <li class="content__par">• Высшая математика</li>
+                                <li class="content__par">• Иностранный язык 1</li>
+                                <li class="content__par">• Информатика и программирование</li>
+                                <li class="content__par">• История России</li>
+                                <li class="content__par">• Культурология техносферы</li>
+                                <li class="content__par">• Основы права</li>
+                                <li class="content__par">• Основы социологии (введение в специльность)</li>
+                                <li class="content__par">• Психология</li>
+                                <li class="content__par">• Экономика</li>
+                                <li class="content__par">• Физическая культура и спорт</li>
+                            </ul>
+                        </div>
+                        <hr class="content__hr">
+                    </div>
+                    <div>
+                        <button class="collapsible">3 семестр</button>
+                        <div class="content">
+                            <ul class="content__list">
+                                <li class="content__par">• Высшая математика</li>
+                                <li class="content__par">• Иностранный язык 1</li>
+                                <li class="content__par">• Информатика и программирование</li>
+                                <li class="content__par">• История России</li>
+                                <li class="content__par">• Культурология техносферы</li>
+                                <li class="content__par">• Основы права</li>
+                                <li class="content__par">• Основы социологии (введение в специльность)</li>
+                                <li class="content__par">• Психология</li>
+                                <li class="content__par">• Экономика</li>
+                                <li class="content__par">• Физическая культура и спорт</li>
+                            </ul>
+                        </div>
+                        <hr class="content__hr">
+                    </div>
+                    <div>
+                        <button class="collapsible">4 семестр</button>
+                        <div class="content">
+                            <ul class="content__list">
+                                <li class="content__par">• Высшая математика</li>
+                                <li class="content__par">• Иностранный язык 1</li>
+                                <li class="content__par">• Информатика и программирование</li>
+                                <li class="content__par">• История России</li>
+                                <li class="content__par">• Культурология техносферы</li>
+                                <li class="content__par">• Основы права</li>
+                                <li class="content__par">• Основы социологии (введение в специльность)</li>
+                                <li class="content__par">• Психология</li>
+                                <li class="content__par">• Экономика</li>
+                                <li class="content__par">• Физическая культура и спорт</li>
+                            </ul>
+                        </div>
+                        <hr class="content__hr">
+                    </div>
+                </div>
+                <div class="program_list">
+                    <div>
+                        <button class="collapsible">5 семестр</button>
+                        <div class="content">
+                            <ul class="content__list">
+                                <li class="content__par">• Высшая математика</li>
+                                <li class="content__par">• Иностранный язык 1</li>
+                                <li class="content__par">• Информатика и программирование</li>
+                                <li class="content__par">• История России</li>
+                                <li class="content__par">• Культурология техносферы</li>
+                                <li class="content__par">• Основы права</li>
+                                <li class="content__par">• Основы социологии (введение в специльность)</li>
+                                <li class="content__par">• Психология</li>
+                                <li class="content__par">• Экономика</li>
+                                <li class="content__par">• Физическая культура и спорт</li>
+                            </ul>
+                        </div>
+                        <hr class="content__hr">
+                    </div>
+                    <div>
+                        <button class="collapsible">6 семестр</button>
+                        <div class="content">
+                            <ul class="content__list">
+                                <li class="content__par">• Высшая математика</li>
+                                <li class="content__par">• Иностранный язык 1</li>
+                                <li class="content__par">• Информатика и программирование</li>
+                                <li class="content__par">• История России</li>
+                                <li class="content__par">• Культурология техносферы</li>
+                                <li class="content__par">• Основы права</li>
+                                <li class="content__par">• Основы социологии (введение в специльность)</li>
+                                <li class="content__par">• Психология</li>
+                                <li class="content__par">• Экономика</li>
+                                <li class="content__par">• Физическая культура и спорт</li>
+                            </ul>
+                        </div>
+                        <hr class="content__hr">
+                    </div>
+                    <div>
+                        <button class="collapsible">7 семестр</button>
+                        <div class="content">
+                            <ul class="content__list">
+                                <li class="content__par">• Высшая математика</li>
+                                <li class="content__par">• Иностранный язык 1</li>
+                                <li class="content__par">• Информатика и программирование</li>
+                                <li class="content__par">• История России</li>
+                                <li class="content__par">• Культурология техносферы</li>
+                                <li class="content__par">• Основы права</li>
+                                <li class="content__par">• Основы социологии (введение в специльность)</li>
+                                <li class="content__par">• Психология</li>
+                                <li class="content__par">• Экономика</li>
+                                <li class="content__par">• Физическая культура и спорт</li>
+                            </ul>
+                        </div>
+                        <hr class="content__hr">
+                    </div>
+                    <div>
+                        <button class="collapsible">8 семестр</button>
+                        <div class="content">
+                            <ul class="content__list">
+                                <li class="content__par">• Высшая математика</li>
+                                <li class="content__par">• Иностранный язык 1</li>
+                                <li class="content__par">• Информатика и программирование</li>
+                                <li class="content__par">• История России</li>
+                                <li class="content__par">• Культурология техносферы</li>
+                                <li class="content__par">• Основы права</li>
+                                <li class="content__par">• Основы социологии (введение в специльность)</li>
+                                <li class="content__par">• Психология</li>
+                                <li class="content__par">• Экономика</li>
+                                <li class="content__par">• Физическая культура и спорт</li>
+                            </ul>
+                        </div>
+                        <hr class="content__hr">
+                    </div>
+                </div>
+                {% endif %}
             </div>
         </div>
     </section>
-    <section class="section__white">
+    <section class="section__white element hidden">
         <div class="conditions">
             <div class="conditions__text">
                 <h1 class="conditions__title">Условия поступления</h1>
                 <p class="conditions__paid__text">Платно</p>
                 <div class="conditions__stat">
                     <h3 class="conditions__info__title">Статистика за 2023 год</h3>
+                    {% if bachelor_statistics %}
+                    {% for statistic in bachelor_statistics %}
+                    <ul class="stat__list">
+                        <li class="list__item__stat">
+                            <span class="score__item">{{ statistic.passing_score }}</span> Проходной<br>балл
+                        </li>
+                        <li class="list__item__stat">
+                            <span class="score__item">{{ statistic.average_score }}</span> Средний<br>проходной балл
+                        </li>
+                        <li class="list__item__stat">
+                            <span class="score__item">{{ statistic.budget_places }}</span> Бюджетных<br> мест
+                        </li>
+                    </ul>
+                    {% endfor %}
+                    {% else %}
                     <ul class="stat__list">
                         <li class="list__item__stat"><span class="score__item">265</span>Проходной<br>балл</li>
-                        <li class="list__item__stat"><span class="score__item">88</span>Средний<br>проходной балл
-                        </li>
-                        <li class="list__item__stat"><span class="score__item">10</span>Бюджетных<br> мест</li>
+                        <li class="list__item__stat"><span class="score__item">88</span>Средний<br>проходной балл</li>
+                        <li class="list__item__stat"><span class="score__item">10</span>Бюджетных<br>мест</li>
                     </ul>
+                    {% endif %}
                 </div>
                 <div class="conditions__scores">
                     <h3 class="conditions__info__title">Минимальные баллы ЕГЭ</h3>
+                    {% if bachelor_statistics %}
+                    {% for statistic in bachelor_statistics %}
+                    <ul class="scores__list">
+                        <li class="list__item__scores"><span
+                                class="score__item">{{ statistic.subject1_min_score }}</span>Обществознание
+                        </li>
+                        <li class="list__item__scores"><span
+                                class="score__item">{{ statistic.subject2_min_score }}</span>Информатика<span
+                                class="list__or"><br>или </span>История<span class="list__or"><br>или</span>Математика
+                        </li>
+                        <li class="list__item__scores"><span
+                                class="score__item">{{ statistic.subject3_min_score }}</span>Русский<br>язык
+                        </li>
+                    </ul>
+                    {% endfor %}
+                    {% else %}
                     <ul class="scores__list">
                         <li class="list__item__scores"><span class="score__item">45</span>Обществознание</li>
                         <li class="list__item__scores"><span class="score__item">45</span>Информатика<span
-                                class="list__or"><br>или </span>История<span class="list__or"><br>или
-                                </span>Математика
+                                class="list__or"><br>или </span>История<span class="list__or"><br>или</span>Математика
                         </li>
                         <li class="list__item__scores"><span class="score__item">45</span>Русский<br>язык</li>
                     </ul>
+                    {% endif %}
                 </div>
             </div>
             <div class="conditions__image">
-                <img class="conditions__img" src="{% static 'sgn2/img/boy_horn.svg' %}" alt="">
+                <img class="conditions__img" src="{% static 'sgn2/img/boy_horn.jpg' %}" loading="lazy" alt="">
+            </div>
+        </div>
+    </section>
+
+    <section class="element hidden">
+        <div class="work">
+            <div class="work__info">
+                <h1 class="title">Где я буду работать?</h1>
+                <p class="work__text">Выпускники работают в органы государственной и муниципальной власти, в
+                    Аналитическом центре при Правительстве РФ, ситуационных и аналитических центрах, силовых
+                    структурах, Яндексе, VK, банках и иных структурах.<br><br>
+                    Сегодня нет ни одной крупной компании, которая смогла бы обойтись без социологов. Кафедра
+                    сотрудничает с ведущими научно-исследовательскими центрами и организациями. </p>
+                <h3 class="work_company">Компании, в которых практикуются наши студенты</h3>
+            </div>
+        </div>
+        <div class="company_carousel_wrap">
+            <div class="company_carousel animate">
+                {% if bachelor_companies %}
+                {% for company in bachelor_companies %}
+                <div class="company_layouts"><img src="{{ company.logo.url }}" alt="{{ company.name }}"></div>
+                {% endfor %}
+                {% else %}
+                <div class="company_layouts"><img src="{% static 'sgn2/img/rostelecom_logo.jpg' %}" loading="lazy">
+                </div>
+                <div class="company_layouts "><img src="{% static 'sgn2/img/roscosmos_logo.jpg' %}" loading="lazy">
+                </div>
+                <div class="company_layouts "><img src="{% static 'sgn2/img/rusopros_logo.jpg' %}" loading="lazy"></div>
+                <div class="company_layouts "><img src="{% static 'sgn2/img/di_logo.jpg' %}" loading="lazy"></div>
+                <div class="company_layouts "><img src="{% static 'sgn2/img/vciom_logo.jpg' %}" loading="lazy"></div>
+                <div class="company_layouts "><img src="{% static 'sgn2/img/tsirkon_logo.jpg' %}" loading="lazy"></div>
+                <div class="company_layouts "><img src="{% static 'sgn2/img/di_logo.jpg' %}" loading="lazy"></div>
+                <div class="company_layouts "><img src="{% static 'sgn2/img/tsirkon_logo.jpg' %}" loading="lazy"></div>
+
+                <div class="company_layouts "><img src="{% static 'sgn2/img/rostelecom_logo.jpg' %}" loading="lazy">
+                </div>
+                <div class="company_layouts "><img src="{% static 'sgn2/img/roscosmos_logo.jpg' %}" loading="lazy">
+                </div>
+                <div class="company_layouts "><img src="{% static 'sgn2/img/rusopros_logo.jpg' %}" loading="lazy"></div>
+                <div class="company_layouts "><img src="{% static 'sgn2/img/di_logo.jpg' %}" loading="lazy"></div>
+                <div class="company_layouts "><img src="{% static 'sgn2/img/vciom_logo.jpg' %}" loading="lazy"></div>
+                <div class="company_layouts "><img src="{% static 'sgn2/img/tsirkon_logo.jpg' %}" loading="lazy"></div>
+                <div class="company_layouts "><img src="{% static 'sgn2/img/di_logo.jpg' %}" loading="lazy"></div>
+                <div class="company_layouts "><img src="{% static 'sgn2/img/tsirkon_logo.jpg' %}" loading="lazy"></div>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="container" id="container2" style="display: none;">
+    <section class="element hidden">
+        <div class="main">
+            <div class="container2__main__text">
+                <ul class="main__preview">
+                    <li class="main__program">№39.04.01</li>
+                </ul>
+                <h1 class="main__title">Социальный анализ технологических инноваций и рисков</h1>
+                <p class="main__desc">Программа направлена на подготовку высококвалифицированных специалистов.
+                    Выпускников с этого направления можно назвать специалистами-социологами в предметной области
+                    социологии техники и технологий.</p>
+                <ul class="main__list">
+                    <li class="main__item">
+                        <span class="main__span">2 года</span>
+                        <br>
+                        период обучения
+                    </li>
+                    <li class="main__item">
+                        <span class="main__span">Очная</span>
+                        <br>
+                        форма обучения
+                    </li>
+                </ul>
+            </div>
+            <div class="main__image">
+                <img class="main__img" src="{% static 'sgn2/img/book-main.png' %}">
+            </div>
+        </div>
+    </section>
+    <section class="section__white element hidden">
+        <div class="wrap__subjects">
+            <div class="subjects">
+                <h1 class="title">Что я буду изучать?</h1>
+                <div class="card">
+                    <div class="card__item">
+                        <h3 class="card__header__soc">Социология</h3>
+                        <ul class="card__list">
+                            <li class="card__list__soc">Экономическая социология</li>
+                            <li class="card__list__soc">Методы прикладной статистики для социологов</li>
+                            <li class="card__list__soc">Основы социологии</li>
+                            <li class="card__list__soc">История социологии</li>
+                            <li class="card__list__soc">Современные социологические теории</li>
+                        </ul>
+                        <img src="{% static 'sgn2/img/girl.png' %}" alt="" class="card__img">
+                    </div>
+                    <div class="card__item">
+                        <h3 class="card__header__tech">Технический цикл</h3>
+                        <ul class="card__list">
+                            <li class="card__list__tech">Высшая математика</li>
+                            <li class="card__list__tech">Дискретная математика</li>
+                            <li class="card__list__tech">Теория вероятностей и математическая статистика</li>
+                            <li class="card__list__tech">Информатика и программирование</li>
+                        </ul>
+                        <img src="{% static 'sgn2/img/gear.png' %}" alt="" class="card__img">
+                    </div>
+                    <div class="card__item">
+                        <h3 class="card__header__hum">Гуманитарный цикл</h3>
+                        <ul class="card__list">
+                            <li class="card__list__hum">Социология управления</li>
+                            <li class="card__list__hum">Социальная психология</li>
+                            <li class="card__list__hum">Социальное проектирование и прогнозирование</li>
+                            <li class="card__list__hum">Методология и методы социологического исследования</li>
+                            <li class="card__list__hum">Логика</li>
+                            <li class="card__list__hum">Экономика</li>
+                            <li class="card__list__hum">Философия</li>
+                        </ul>
+                        <img src="{% static 'sgn2/img/book.png' %}" alt="" class="card__img">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="element hidden">
+        <div class="program">
+            <h1 class="title">Учебный план</h1>
+            <div class="program__list">
+                {% if master_semesters %}
+                <div class="program_list">
+                    {% for semester in master_semesters %}
+                    {% if forloop.counter0|divisibleby:2 %}
+                    <div>
+                        <button class="collapsible">{{ semester.number }} семестр</button>
+                        <div class="content">
+                            <ul class="content__list">
+                                {% for discipline in semester.disciplines.all %}
+                                <li class="content__par">• {{ discipline.name }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <hr class="content__hr">
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+                <div class="program_list">
+                    {% for semester in master_semesters %}
+                    {% if not forloop.counter0|divisibleby:2 %}
+                    <div>
+                        <button class="collapsible">{{ semester.number }} семестр</button>
+                        <div class="content">
+                            <ul class="content__list">
+                                {% for discipline in semester.disciplines.all %}
+                                <li class="content__par">• {{ discipline.name }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <hr class="content__hr">
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+                {% else %}
+                <div class="program_list">
+                    <div>
+                        <button class="collapsible">1 семестр</button>
+                        <div class="content">
+                            <ul class="content__list">
+                                <li class="content__par">• Высшая математика</li>
+                                <li class="content__par">• Иностранный язык 1</li>
+                                <li class="content__par">• Информатика и программирование</li>
+                                <li class="content__par">• История России</li>
+                                <li class="content__par">• Культурология техносферы</li>
+                                <li class="content__par">• Основы права</li>
+                            </ul>
+                        </div>
+                        <hr class="content__hr">
+                    </div>
+                    <div>
+                        <button class="collapsible">2 семестр</button>
+                        <div class="content">
+                            <ul class="content__list">
+                                <li class="content__par">• Высшая математика</li>
+                                <li class="content__par">• Иностранный язык 1</li>
+                                <li class="content__par">• Информатика и программирование</li>
+                                <li class="content__par">• История России</li>
+                                <li class="content__par">• Культурология техносферы</li>
+                                <li class="content__par">• Основы права</li>
+                            </ul>
+                        </div>
+                        <hr class="content__hr">
+                    </div>
+                </div>
+                <div class="program_list">
+                    <div>
+                        <button class="collapsible">3 семестр</button>
+                        <div class="content">
+                            <ul class="content__list">
+                                <li class="content__par">• Высшая математика</li>
+                                <li class="content__par">• Иностранный язык 1</li>
+                                <li class="content__par">• Информатика и программирование</li>
+                                <li class="content__par">• История России</li>
+                                <li class="content__par">• Культурология техносферы</li>
+                                <li class="content__par">• Основы права</li>
+                            </ul>
+                        </div>
+                        <hr class="content__hr">
+                    </div>
+                    <div>
+                        <button class="collapsible">4 семестр</button>
+                        <div class="content">
+                            <ul class="content__list">
+                                <li class="content__par">• Высшая математика</li>
+                                <li class="content__par">• Иностранный язык 1</li>
+                                <li class="content__par">• Информатика и программирование</li>
+                                <li class="content__par">• История России</li>
+                                <li class="content__par">• Культурология техносферы</li>
+                                <li class="content__par">• Основы права</li>
+                            </ul>
+                        </div>
+                        <hr class="content__hr">
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+    <section class="section__white element hidden">
+        <div class="conditions">
+            <div class="conditions__text">
+                <h1 class="conditions__title">Условия поступления</h1>
+                <p class="conditions__paid__text">Платно</p>
+                <div class="conditions__stat">
+                    <h3 class="conditions__info__title">Статистика за 2023 год</h3>
+                    {% if master_statistics %}
+                    {% for statistic in master_statistics %}
+                    <ul class="stat__list">
+                        <li class="list__item__stat">
+                            <span class="score__item">{{ statistic.passing_score }}</span> Проходной<br>балл
+                        </li>
+                        <li class="list__item__stat">
+                            <span class="score__item">{{ statistic.budget_places }}</span> Платных<br> мест
+                        </li>
+                    </ul>
+                    {% endfor %}
+                    {% else %}
+                    <ul class="stat__list">
+                        <li class="list__item__stat"><span class="score__item">27</span>Проходной<br>балл</li>
+                        <li class="list__item__stat"><span class="score__item">10</span>Платных<br>мест
+                        </li>
+                    </ul>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="container2__conditions__image">
+                <img class="conditions__img" src="{% static 'sgn2/img/boy_horn.jpg' %}" loading="lazy" alt="">
             </div>
         </div>
     </section>
@@ -284,32 +623,43 @@ active
                 <h3 class="work_company">Компании, в которых практикуются наши студенты</h3>
             </div>
         </div>
-            <div class="company_carousel_wrap">
-                <div class="company_carousel">
-                    <div class="company_layouts"><img src="{% static 'sgn2/img/rostelecom_logo.svg' %}"></div>
-                    <div class="company_layouts"><img src="{% static 'sgn2/img/roscosmos-logo.svg' %}"></div>
-                    <div class="company_layouts"><img src="{% static 'sgn2/img/rusopros_logo.svg' %}"></div>
-                    <div class="company_layouts"><img src="{% static 'sgn2/img/di-logo.svg' %}"></div>
-                    <div class="company_layouts"><img src="{% static 'sgn2/img/vciom_logo.svg' %}"></div>
-                    <div class="company_layouts"><img src="{% static 'sgn2/img/tsirkon_logo.svg' %}"></div>
-                    <div class="company_layouts"><img src="{% static 'sgn2/img/di-logo.svg' %}"></div>
-                    <div class="company_layouts"><img src="{% static 'sgn2/img/tsirkon_logo.svg' %}"></div>
-
-                    <div class="company_layouts"><img src="{% static 'sgn2/img/rostelecom_logo.svg' %}"></div>
-                    <div class="company_layouts"><img src="{% static 'sgn2/img/roscosmos-logo.svg' %}"></div>
-                    <div class="company_layouts"><img src="{% static 'sgn2/img/rusopros_logo.svg' %}"></div>
-                    <div class="company_layouts"><img src="{% static 'sgn2/img/di-logo.svg' %}"></div>
-                    <div class="company_layouts"><img src="{% static 'sgn2/img/vciom_logo.svg' %}"></div>
-                    <div class="company_layouts"><img src="{% static 'sgn2/img/tsirkon_logo.svg' %}"></div>
-                    <div class="company_layouts"><img src="{% static 'sgn2/img/di-logo.svg' %}"></div>
-                    <div class="company_layouts"><img src="{% static 'sgn2/img/tsirkon_logo.svg' %}"></div>
+        <div class="company_carousel_wrap">
+            <div class="company_carousel animate">
+                {% if master_companies %}
+                {% for company in master_companies %}
+                <div class="company_layouts "><img src="{{ company.logo.url }}" alt="{{ company.name }}"></div>
+                {% endfor %}
+                {% else %}
+                <div class="company_layouts "><img src="{% static 'sgn2/img/rostelecom_logo.jpg' %}" loading="lazy">
                 </div>
+                <div class="company_layouts "><img src="{% static 'sgn2/img/roscosmos_logo.jpg' %}" loading="lazy">
+                </div>
+                <div class="company_layouts "><img src="{% static 'sgn2/img/rusopros_logo.jpg' %}" loading="lazy"></div>
+                <div class="company_layouts "><img src="{% static 'sgn2/img/di_logo.jpg' %}" loading="lazy"></div>
+                <div class="company_layouts "><img src="{% static 'sgn2/img/vciom_logo.jpg' %}" loading="lazy"></div>
+                <div class="company_layouts "><img src="{% static 'sgn2/img/tsirkon_logo.jpg' %}" loading="lazy"></div>
+                <div class="company_layouts "><img src="{% static 'sgn2/img/di_logo.jpg' %}" loading="lazy"></div>
+                <div class="company_layouts "><img src="{% static 'sgn2/img/tsirkon_logo.jpg' %}" loading="lazy"></div>
+
+                <div class="company_layouts "><img src="{% static 'sgn2/img/rostelecom_logo.jpg' %}" loading="lazy">
+                </div>
+                <div class="company_layouts "><img src="{% static 'sgn2/img/roscosmos_logo.jpg' %}" loading="lazy">
+                </div>
+                <div class="company_layouts "><img src="{% static 'sgn2/img/rusopros_logo.jpg' %}" loading="lazy"></div>
+                <div class="company_layouts "><img src="{% static 'sgn2/img/di_logo.jpg' %}" loading="lazy"></div>
+                <div class="company_layouts "><img src="{% static 'sgn2/img/vciom_logo.jpg' %}" loading="lazy"></div>
+                <div class="company_layouts "><img src="{% static 'sgn2/img/tsirkon_logo.jpg' %}" loading="lazy"></div>
+                <div class="company_layouts "><img src="{% static 'sgn2/img/di_logo.jpg' %}" loading="lazy"></div>
+                <div class="company_layouts "><img src="{% static 'sgn2/img/tsirkon_logo.jpg' %}" loading="lazy"></div>
+                {% endif %}
             </div>
+        </div>
     </section>
 </div>
 
 <script src="{% static 'sgn2/js/collapse.js' %}"></script>
 <script src="{% static 'sgn2/js/containerToggle.js' %}"></script>
+<script src="{% static 'sgn2/js/scrollReveal.js' %}"></script>
 
 {% endblock %}
 

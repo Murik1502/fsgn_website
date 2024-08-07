@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-    О кафедре | СГН2
+О кафедре | СГН2
 {% endblock %}
 
 {% block css %}
@@ -10,154 +10,227 @@
 {% endblock %}
 
 {% block about_tab %}
-    active
+active
 {% endblock %}
 
 {% block content %}
-    <section class="grid-12">
-        <div class="container-6" style="align-self: center;">
-            <div class="stroke-block">Кафедра СГН2</div>
-            <div class="h1 mt15">Социология и культурология</div>
-            <div class="text1 mt25">Социология техники — новая и чрезвычайно востребованная отрасль социального знания. В последние десятилетия растет число исследований в области социальной оценки техники, управления технологическими инновациями, функционирования научного и технического сообществ, организации инженерной деятельности, культурологии.</div>
+<section class="grid-12 element hidden">
+    <div class="container-6" style="align-self: center;">
+        <div class="stroke-block">Кафедра СГН2</div>
+        <div class="h1 mt15">Социология и культурология</div>
+        <div class="text1 mt25">Социология техники — новая и чрезвычайно востребованная отрасль социального знания. В
+            последние десятилетия растет число исследований в области социальной оценки техники, управления
+            технологическими инновациями, функционирования научного и технического сообществ, организации инженерной
+            деятельности, культурологии.
         </div>
-        <div class="container-6 top-img-container">
-            <img src="{% static 'sgn2/img/about-top-illustration.png' %}" alt="" style="height: 100%">
+    </div>
+    <div class="container-6 top-img-container">
+        <img src="{% static 'sgn2/img/about-top-illustration.png' %}" alt="" style="height: 100%">
+    </div>
+</section>
+<section style="background-color: white" class="element hidden">
+    <div class="inline-container">
+        <div class="h2">Преимущества</div>
+        <div class="btns">
+            <button class="arrow-btn" id="adv-prev"><img src="{% static 'sgn2/img/arrow-slider.svg' %}"
+                                                         style="transform: rotate(180deg); margin-right: 3px; margin-top: 3px;">
+            </button>
+            <button class="arrow-btn" id="adv-next"><img src="{% static 'sgn2/img/arrow-slider.svg' %}"
+                                                         style="margin-left: 3px; margin-top: 3px;"></button>
         </div>
-    </section>
-    <section style="background-color: white">
-        <div class="inline-container">
-            <div class="h2">Преимущества</div>
-            <div class="btns">
-                <button class="arrow-btn" id="adv-prev"><img src="{% static 'sgn2/img/arrow-slider.svg' %}" style="transform: rotate(180deg); margin-right: 3px; margin-top: 3px;"></button>
-                <button class="arrow-btn" id="adv-next"><img src="{% static 'sgn2/img/arrow-slider.svg' %}" style="margin-left: 3px; margin-top: 3px;"></button>
+    </div>
+    <div class="slider advantages mt25">
+        {% if advantages %}
+        {% for advantage in advantages %}
+        <div class="slide advantage">
+            <div class="point-number">{{ forloop.counter }}</div>
+            <div class="text1 mt15">{{ advantage }}</div>
+        </div>
+        {% endfor %}
+        {% else %}
+        <div class="slide advantage">
+            <div class="point-number">1</div>
+            <div class="text1 mt15">Понимания феномена техносферы, проведение комплексной социальной экспертизы</div>
+        </div>
+        <div class="slide advantage">
+            <div class="point-number">2</div>
+            <div class="text1 mt15">Реализация практик социальной оценки техники и технологий и продвижение инноваций
             </div>
         </div>
-        <div class="slider advantages mt25">
-            {% for advantage in advantages %}
-                <div class="slide advantage">
-                <div class="point-number">{{ forloop.counter }}</div>
-                <div class="text1 mt15">{{ advantage }}</div>
-            </div>
-            {% endfor %}
+        <div class="slide advantage">
+            <div class="point-number">3</div>
+            <div class="text1 mt15">Анализ техногенных рисков с точки зрения их социальных последствий и способов</div>
         </div>
-    </section>
-    <section>
-        <div class="inline-container">
-            <div class="h2">Преподаватели</div>
-            <div class="btns">
-                <button class="arrow-btn" id="teacher-prev"><img src="{% static 'sgn2/img/arrow-slider.svg' %}" style="transform: rotate(180deg); margin-right: 3px; margin-top: 3px;"></button>
-                <button class="arrow-btn" id="teacher-next"><img src="{% static 'sgn2/img/arrow-slider.svg' %}" style="margin-left: 3px; margin-top: 3px;"></button>
-            </div>
+        <div class="slide advantage">
+            <div class="point-number">4</div>
+            <div class="text1 mt15">Анализ социологических систем и их регуляции</div>
         </div>
-        <div class="slider teachers mt25">
-            {% for teacher in teachers %}
-                <div class="slide teacher">
-                <div class="teacher-img" style="background-image: url({{ teacher.photo.url}})"></div>
-                    <div class="text-block">
-                        <div class="h3">{{ teacher.name }}</div>
-                        <div class="text1 mt10">{{ teacher.role }}</div>
-                        <div class="sub-info-block mt10">
-                            <div class="line"></div>
-                            <div class="text1 ml15">{{ teacher.description }}</div>
-                        </div>
-                    </div>
-                </div>
-            {% endfor %}
+        {% endif %}
+    </div>
+</section>
+<section class="element hidden">
+    <div class="inline-container">
+        <div class="h2">Преподаватели</div>
+        <div class="btns">
+            <button class="arrow-btn" id="teacher-prev"><img src="{% static 'sgn2/img/arrow-slider.svg' %}"
+                                                             style="transform: rotate(180deg); margin-right: 3px; margin-top: 3px;">
+            </button>
+            <button class="arrow-btn" id="teacher-next"><img src="{% static 'sgn2/img/arrow-slider.svg' %}"
+                                                             style="margin-left: 3px; margin-top: 3px;"></button>
         </div>
-        <div class="mt50"><a class="btn" href="#">Смотреть всех</a></div>
-    </section>
-    <section>
-        <div class="grid-12" style="margin-top: -20px">
-            <div class="block container-4">
-                <div class="h3">Контакты</div>
-                <div class="inline-text" style="margin-top: 20px">
-                    <a class="icon-text-block" href="https://vk.com/sociology.bmstu"><img src="{% static 'sgn2/img/vk-logo.svg' %}" alt=""><div>ВКонтакте</div></a>
-                    <a class="icon-text-block" href="https://t.me/soc_tech_bmstu"><img src="{% static 'sgn2/img/tg-logo.svg' %}" alt=""><div>Telegram</div></a>
-                </div>
-                <div class="contact mt25">
-                    <div class="description">Номер телефона</div>
-                    <div class="text1">8 (499) 263-63-98</div>
-                </div>
-                <div class="contact mt25">
-                    <div class="description">E-MAIL</div>
-                    <div class="text1">sgn2@bmstu.ru</div>
-                </div>
-                <div class="contact mt25">
-                    <div class="description">Время работы</div>
-                    <div class="text1">Пн-Пт с 10:00 до 17:00</div>
-                </div>
-                <div class="contact mt25">
-                    <div class="description">Адрес</div>
-                    <div class="text1">г. Москва, Рубцовская набережная, дом 2/18, эт. 7, каб. 1721а</div>
+    </div>
+    <div class="slider teachers mt25">
+        {% if teachers %}
+        {% for teacher in teachers %}
+        <div class="slide teacher">
+            <div class="teacher-img" style="background-image: url({{ teacher.photo.url}})"></div>
+            <div class="text-block">
+                <div class="h3">{{ teacher.name }}</div>
+                <div class="text1 mt10">{{ teacher.role }}</div>
+                <div class="sub-info-block mt10">
+                    <div class="line"></div>
+                    <div class="text1 ml15">{{ teacher.description }}</div>
                 </div>
             </div>
-            <div class="container-8" style="background-image: url({% static 'sgn2/img/contacts-illustration.jpg' %})"></div>
         </div>
-    </section>
+        {% endfor %}
+        {% else %}
+        <a href="#" class="slide teacher">
+            <div class="teacher-img" style="background-image: url({% static 'sgn2/img/subocheva.jpg' %})"></div>
+            <div class="text-block">
+                <div class="h3">Субочева Оксана Никлоаевна</div>
+                <div class="text1 mt10">Заведующий Профессор кафедры, доктор социологических наук, профессор</div>
+                <div class="sub-info-block mt10">
+                    <div class="line"></div>
+                    <div class="text1 ml15">МГУ имени М.В. Ломоносова, социолог, преподаватель социологии</div>
+                </div>
+            </div>
+        </a>
+        <a href="#" class="slide teacher">
+            <div class="teacher-img" style="background-image: url({% static 'sgn2/img/subocheva.jpg' %})"></div>
+            <div class="text-block">
+                <div class="h3">Субочева Оксана Никлоаевна</div>
+                <div class="text1 mt10">Заведующий Профессор кафедры, доктор социологических наук, профессор</div>
+                <div class="sub-info-block mt10">
+                    <div class="line"></div>
+                    <div class="text1 ml15">МГУ имени М.В. Ломоносова, социолог, преподаватель социологии</div>
+                </div>
+            </div>
+        </a>
+        <a href="#" class="slide teacher">
+            <div class="teacher-img" style="background-image: url({% static 'sgn2/img/subocheva.jpg' %})"></div>
+            <div class="text-block">
+                <div class="h3">Субочева Оксана Никлоаевна</div>
+                <div class="text1 mt10">Заведующий Профессор кафедры, доктор социологических наук, профессор</div>
+                <div class="sub-info-block mt10">
+                    <div class="line"></div>
+                    <div class="text1 ml15">МГУ имени М.В. Ломоносова, социолог, преподаватель социологии</div>
+                </div>
+            </div>
+        </a>
+        {% endif %}
+    </div>
+    <div class="mt50"><a class="btn" href="#">Смотреть всех</a></div>
+</section>
+<section class="element hidden">
+    <div class="grid-12" style="margin-top: -20px">
+        <div class="block container-4">
+            <div class="h3">Контакты</div>
+            <div class="inline-text" style="margin-top: 20px">
+                <a class="icon-text-block" href="https://vk.com/sociology.bmstu"><img
+                        src="{% static 'sgn2/img/vk-logo.svg' %}" alt="">
+                    <div>ВКонтакте</div>
+                </a>
+                <a class="icon-text-block" href="https://t.me/soc_tech_bmstu"><img
+                        src="{% static 'sgn2/img/tg-logo.svg' %}" alt="">
+                    <div>Telegram</div>
+                </a>
+            </div>
+            <div class="contact mt25">
+                <div class="description">Номер телефона</div>
+                <div class="text1">8 (499) 263-63-98</div>
+            </div>
+            <div class="contact mt25">
+                <div class="description">E-MAIL</div>
+                <div class="text1">sgn2@bmstu.ru</div>
+            </div>
+            <div class="contact mt25">
+                <div class="description">Время работы</div>
+                <div class="text1">Пн-Пт с 10:00 до 17:00</div>
+            </div>
+            <div class="contact mt25">
+                <div class="description">Адрес</div>
+                <div class="text1">г. Москва, Рубцовская набережная, дом 2/18, эт. 7, каб. 1721а</div>
+            </div>
+        </div>
+        <div class="container-8" style="background-image: url({% static 'sgn2/img/contacts-illustration.jpg' %})"></div>
+    </div>
+</section>
 
-    <script>
-        const advantagesSlider = document.querySelector('.advantages');
-        const advantagesSlides = document.querySelectorAll('.advantage');
-        const visibleAdvSlides = 3; // количество видимых слайдов
-        const advSlideWidth = advantagesSlides[0].clientWidth + window.innerHeight * 2 / 100; // ширина слайда + отступ
+<script src="{% static 'sgn2/js/scrollReveal.js' %}"></script>
+<script>
+    const advantagesSlider = document.querySelector('.advantages');
+    const advantagesSlides = document.querySelectorAll('.advantage');
+    const visibleAdvSlides = 3; // количество видимых слайдов
+    const advSlideWidth = advantagesSlides[0].clientWidth + window.innerHeight * 2 / 100; // ширина слайда + отступ
 
-        let currentAdvantagesIndex = 0;
+    let currentAdvantagesIndex = 0;
 
-        function showAdvantagesSlides() {
-            advantagesSlider.style.transform = `translateX(-${currentAdvantagesIndex * advSlideWidth}px)`;
+    function showAdvantagesSlides() {
+        advantagesSlider.style.transform = `translateX(-${currentAdvantagesIndex * advSlideWidth}px)`;
+    }
+
+    function nextAdvantagesSlide() {
+        if (currentAdvantagesIndex + visibleAdvSlides < advantagesSlides.length) {
+            currentAdvantagesIndex++;
         }
-
-        function nextAdvantagesSlide() {
-            if (currentAdvantagesIndex + visibleAdvSlides < advantagesSlides.length) {
-                currentAdvantagesIndex++;
-            }
-            showAdvantagesSlides();
-        }
-
-        function prevAdvantagesSlide() {
-            if (currentAdvantagesIndex > 0) {
-                currentAdvantagesIndex--;
-            }
-            showAdvantagesSlides();
-        }
-
         showAdvantagesSlides();
+    }
 
-        // Добавляем обработчики событий для кнопок "Next" и "Prev"
-        document.getElementById('adv-next').addEventListener('click', nextAdvantagesSlide);
-        document.getElementById('adv-prev').addEventListener('click', prevAdvantagesSlide);
-
-
-
-        const teachersSlider = document.querySelector('.teachers');
-        const teachersSlides = document.querySelectorAll('.teacher');
-        const visibleTeachersSlides = 2; // количество видимых слайдов
-        const teachersSlideWidth = teachersSlides[0].clientWidth + window.innerHeight * 2 / 100; // ширина слайда + отступ
-
-        let currentTeachersIndex = 0;
-
-        function showTeachersSlides() {
-            teachersSlider.style.transform = `translateX(-${currentTeachersIndex * teachersSlideWidth}px)`;
+    function prevAdvantagesSlide() {
+        if (currentAdvantagesIndex > 0) {
+            currentAdvantagesIndex--;
         }
+        showAdvantagesSlides();
+    }
 
-        function nextTeachersSlide() {
-            if (currentTeachersIndex + visibleTeachersSlides < teachersSlides.length) {
-                currentTeachersIndex++;
-            }
-            showTeachersSlides();
+    showAdvantagesSlides();
+
+    // Добавляем обработчики событий для кнопок "Next" и "Prev"
+    document.getElementById('adv-next').addEventListener('click', nextAdvantagesSlide);
+    document.getElementById('adv-prev').addEventListener('click', prevAdvantagesSlide);
+
+
+
+    const teachersSlider = document.querySelector('.teachers');
+    const teachersSlides = document.querySelectorAll('.teacher');
+    const visibleTeachersSlides = 2; // количество видимых слайдов
+    const teachersSlideWidth = teachersSlides[0].clientWidth + window.innerHeight * 2 / 100; // ширина слайда + отступ
+
+    let currentTeachersIndex = 0;
+
+    function showTeachersSlides() {
+        teachersSlider.style.transform = `translateX(-${currentTeachersIndex * teachersSlideWidth}px)`;
+    }
+
+    function nextTeachersSlide() {
+        if (currentTeachersIndex + visibleTeachersSlides < teachersSlides.length) {
+            currentTeachersIndex++;
         }
-
-        function prevTeachersSlide() {
-            if (currentTeachersIndex > 0) {
-                currentTeachersIndex--;
-            }
-            showTeachersSlides();
-        }
-
         showTeachersSlides();
+    }
 
-        // Добавляем обработчики событий для кнопок "Next" и "Prev"
-        document.getElementById('teacher-next').addEventListener('click', nextTeachersSlide);
-        document.getElementById('teacher-prev').addEventListener('click', prevTeachersSlide);
-    </script>
+    function prevTeachersSlide() {
+        if (currentTeachersIndex > 0) {
+            currentTeachersIndex--;
+        }
+        showTeachersSlides();
+    }
+
+    showTeachersSlides();
+
+    // Добавляем обработчики событий для кнопок "Next" и "Prev"
+    document.getElementById('teacher-next').addEventListener('click', nextTeachersSlide);
+    document.getElementById('teacher-prev').addEventListener('click', prevTeachersSlide);
+</script>
 {% endblock %}
